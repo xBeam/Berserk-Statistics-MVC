@@ -1,0 +1,50 @@
+﻿@model Berserk_Statistics_MVC.Models.Tournament
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Tournament</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MemberId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MemberId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MembersNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MembersNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Rating.RatingId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Rating.RatingId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.TournamentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

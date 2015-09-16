@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Berserk_Statistics_MVC.Models.Card>
+
+@{
+    ViewBag.Title = "Карты";
+    var grid = new WebGrid(source: Model, rowsPerPage: 20);
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<h2>Рейтинг</h2>
+
+@section styles
+{
+    <link href="~/Content/GridStyles.css" rel="stylesheet" />
+}
+
+<p>
+    @Html.ActionLink("Добавить новый список", "Create")
+</p>
+
+@grid.GetHtml(tableStyle: "grid",
+              headerStyle: "header",
+              rowStyle: "row",
+              alternatingRowStyle: "alt-row",
+              footerStyle: "footer",
+              htmlAttributes: new { cellpadding = "6px", cellspacing = "0px" },
+              columns: grid.Columns(
+                grid.Column(columnName: "CardId", header: "Название"),
+                grid.Column(columnName: "Edition", header: "Выпуск"),
+                grid.Column(columnName: "Quantity", header: "Количество"),
+                grid.Column(columnName: "Features", header: "Особенности")
+                )
+             )

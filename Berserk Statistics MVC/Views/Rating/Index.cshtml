@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Berserk_Statistics_MVC.Models.Rating>
+
+@{
+    ViewBag.Title = "Рейтинг";
+    var grid = new WebGrid(source: Model, rowsPerPage: 20);
+}
+
+<h2>Рейтинг</h2>
+
+@section styles
+{
+    <link href="~/Content/GridStyles.css" rel="stylesheet" />
+}
+
+<p>
+    @Html.ActionLink("Добавить новый", "Create")
+</p>
+
+@grid.GetHtml(tableStyle: "grid",
+              headerStyle: "header",
+              rowStyle: "row",
+              alternatingRowStyle: "alt-row",
+              footerStyle: "footer",
+              htmlAttributes: new { cellpadding = "6px", cellspacing = "0px" },
+              columns: grid.Columns(
+                grid.Column(columnName: "MemberId", header: "Участник"),
+                grid.Column(columnName: "TournamentsNumber", header: "Количество турниров"),
+                grid.Column(columnName: "Win", header: "Победы"),
+                grid.Column(columnName: "Loss", header: "Поражения"),
+                grid.Column(columnName: "PercentPoint", header: "Очки")
+                )
+              )
+
+
+@*<aside>
+<h3>Aside Title</h3>
+<p>
+    Use this area to provide additional information.
+</p>
+<ul>
+    <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+    <li>@Html.ActionLink("Рейтинг", "About", "Home")</li>
+    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+</ul>
+</aside>*@

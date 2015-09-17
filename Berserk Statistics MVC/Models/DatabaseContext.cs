@@ -18,5 +18,7 @@ namespace Berserk_Statistics_MVC.Models
         //public DbSet<User> Users { get; set; }
 
         public DbSet<UserProfile> UserProfiles { get; set; }
+
+        public DbSet<TournamentList> TournamentLists { get; set; }
     }
 }

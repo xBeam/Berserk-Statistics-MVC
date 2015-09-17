@@ -186,6 +186,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RatingController.cs" />
     <Compile Include="Controllers\TournamentController.cs" />
+    <Compile Include="Controllers\TournamentListController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -193,11 +194,19 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
+    <Compile Include="Models\DbInitializer.cs" />
     <Compile Include="Models\Rating.cs" />
+    <Compile Include="Models\Round.cs" />
     <Compile Include="Models\Tournament.cs" />
+    <Compile Include="Models\TournamentList.cs" />
+    <Compile Include="Models\TournamentMember.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\DatabaseContext.mdf" />
+    <Content Include="App_Data\DatabaseContext_log.ldf">
+      <DependentUpon>DatabaseContext.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\GridStyles.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -324,10 +333,13 @@
     <Content Include="Views\Tournament\Create.cshtml" />
     <Content Include="Views\Tournament\Edit.cshtml" />
     <Content Include="Views\Tournament\Delete.cshtml" />
+    <Content Include="Views\TournamentList\Index.cshtml" />
+    <Content Include="Views\TournamentList\Details.cshtml" />
+    <Content Include="Views\TournamentList\Create.cshtml" />
+    <Content Include="Views\TournamentList\Edit.cshtml" />
+    <Content Include="Views\TournamentList\Delete.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

@@ -275,7 +275,8 @@ ol.round {
         }
 
         ol.round li.one {
-            background: url("../Images/orderedList1.png") no-repeat;
+            background: url("../Images/Колонна Ivory Left.jpg") no-repeat; 
+            /*orderedList1.png") no-repeat;*/
         }
 
         ol.round li.two {

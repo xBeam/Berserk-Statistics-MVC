@@ -81,6 +81,6 @@ F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\ko\System.S
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\ru\System.Spatial.resources.dll
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\zh-Hans\System.Spatial.resources.dll
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\zh-Hant\System.Spatial.resources.dll
-F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\obj\Debug\Berserk Statistics MVC.csprojResolveAssemblyReference.cache
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\obj\Debug\Berserk Statistics MVC.dll
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\obj\Debug\Berserk Statistics MVC.pdb
+F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\obj\Debug\Berserk Statistics MVC.csprojResolveAssemblyReference.cache

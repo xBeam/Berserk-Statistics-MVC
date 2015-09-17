@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Berserk_Statistics_MVC.Models;
 
 namespace Berserk_Statistics_MVC
 {
@@ -16,6 +18,7 @@ namespace Berserk_Statistics_MVC
     {
         protected void Application_Start()
         {
+            Database.SetInitializer(new DbInitializer());
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);

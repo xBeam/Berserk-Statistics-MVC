@@ -1,0 +1,71 @@
+﻿@model Berserk_Statistics_MVC.Models.TournamentList
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>TournamentList</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TournamentListName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TournamentListName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MemberId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MemberId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MemberName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MemberName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MembersNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MembersNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RatingId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RatingId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RatingName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RatingName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.TournamentListId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

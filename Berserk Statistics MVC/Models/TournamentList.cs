@@ -5,17 +5,17 @@ using System.Web;
 
 namespace Berserk_Statistics_MVC.Models
 {
-    public class Tournament
+    public class TournamentList
     {
-        public int TournamentId { get; set; }
-        public string TournamentName { get; set; }
         public int TournamentListId { get; set; }
+        public string TournamentListName { get; set; }
         public int UserId { get; set; }
         public int MemberId { get; set; }
         public string MemberName { get; set; }
-        public decimal MemberPoints { get; set; }
+        public int MembersNumber { get; set; }
         public int RatingId { get; set; }
-        public Rating Rating { get; set; }
-        public TournamentList TournamentList { get; set; }
+        public string RatingName { get; set; }
+        public DateTime Date { get; set; }
+        //public Rating Rating { get; set; }
     }
 }

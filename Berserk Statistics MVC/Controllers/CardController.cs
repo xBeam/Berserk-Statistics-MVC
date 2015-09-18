@@ -18,7 +18,8 @@ namespace Berserk_Statistics_MVC.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Cards.ToList());
+            var cards = db.Cards.Include(c => c.User);
+            return View(cards.ToList());
         }
 
         //
@@ -39,6 +40,7 @@ namespace Berserk_Statistics_MVC.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName");
             return View();
         }
 
@@ -56,6 +58,7 @@ namespace Berserk_Statistics_MVC.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName", card.UserId);
             return View(card);
         }
 
@@ -69,6 +72,7 @@ namespace Berserk_Statistics_MVC.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName", card.UserId);
             return View(card);
         }
 
@@ -85,6 +89,7 @@ namespace Berserk_Statistics_MVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName", card.UserId);
             return View(card);
         }
 

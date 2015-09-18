@@ -16,10 +16,10 @@
         @Html.HiddenFor(model => model.CardId)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.UserId)
+            @Html.LabelFor(model => model.UserId, "User")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.UserId)
+            @Html.DropDownList("UserId", String.Empty)
             @Html.ValidationMessageFor(model => model.UserId)
         </div>
 
@@ -70,7 +70,7 @@
 }
 
 <div>
-    @Html.ActionLink("Вернуться к списку", "Index")
+    @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {

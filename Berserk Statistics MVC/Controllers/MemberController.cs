@@ -9,112 +9,112 @@ using Berserk_Statistics_MVC.Models;
 
 namespace Berserk_Statistics_MVC.Controllers
 {
-    public class TournamentController : Controller
+    public class MemberController : Controller
     {
         private DatabaseContext db = new DatabaseContext();
 
         //
-        // GET: /Tournament/
+        // GET: /Member/
 
         public ActionResult Index()
         {
-            var tournaments = db.Tournaments.Include(t => t.Rating);
-            return View(tournaments.ToList());
+            var members = db.Members;//.Include(m => m.User);
+            return View(members.ToList());
         }
 
         //
-        // GET: /Tournament/Details/5
+        // GET: /Member/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            Tournament tournament = db.Tournaments.Find(id);
-            if (tournament == null)
+            Member member = db.Members.Find(id);
+            if (member == null)
             {
                 return HttpNotFound();
             }
-            return View(tournament);
+            return View(member);
         }
 
         //
-        // GET: /Tournament/Create
+        // GET: /Member/Create
 
         public ActionResult Create()
         {
-            ViewBag.RatingId = new SelectList(db.Ratings, "RatingId", "RatingId");
+            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName");
             return View();
         }
 
         //
-        // POST: /Tournament/Create
+        // POST: /Member/Create
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Tournament tournament)
+        public ActionResult Create(Member member)
         {
             if (ModelState.IsValid)
             {
-                db.Tournaments.Add(tournament);
+                db.Members.Add(member);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.RatingId = new SelectList(db.Ratings, "RatingId", "RatingId", tournament.RatingId);
-            return View(tournament);
+            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName", member.UserId);
+            return View(member);
         }
 
         //
-        // GET: /Tournament/Edit/5
+        // GET: /Member/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
-            Tournament tournament = db.Tournaments.Find(id);
-            if (tournament == null)
+            Member member = db.Members.Find(id);
+            if (member == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.RatingId = new SelectList(db.Ratings, "RatingId", "RatingId", tournament.RatingId);
-            return View(tournament);
+            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName", member.UserId);
+            return View(member);
         }
 
         //
-        // POST: /Tournament/Edit/5
+        // POST: /Member/Edit/5
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Tournament tournament)
+        public ActionResult Edit(Member member)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tournament).State = EntityState.Modified;
+                db.Entry(member).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.RatingId = new SelectList(db.Ratings, "RatingId", "RatingId", tournament.RatingId);
-            return View(tournament);
+            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName", member.UserId);
+            return View(member);
         }
 
         //
-        // GET: /Tournament/Delete/5
+        // GET: /Member/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
-            Tournament tournament = db.Tournaments.Find(id);
-            if (tournament == null)
+            Member member = db.Members.Find(id);
+            if (member == null)
             {
                 return HttpNotFound();
             }
-            return View(tournament);
+            return View(member);
         }
 
         //
-        // POST: /Tournament/Delete/5
+        // POST: /Member/Delete/5
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Tournament tournament = db.Tournaments.Find(id);
-            db.Tournaments.Remove(tournament);
+            Member member = db.Members.Find(id);
+            db.Members.Remove(member);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -15,10 +15,12 @@ namespace Berserk_Statistics_MVC.Models
 
         public DbSet<Card> Cards { get; set; }
 
-        //public DbSet<User> Users { get; set; }
-
         public DbSet<UserProfile> UserProfiles { get; set; }
-
+        
         public DbSet<TournamentList> TournamentLists { get; set; }
+        
+        public DbSet<Member> Members { get; set; }
+        
+        public DbSet<Round> Rounds { get; set; }
     }
 }

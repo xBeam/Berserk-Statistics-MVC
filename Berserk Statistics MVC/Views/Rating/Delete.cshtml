@@ -11,17 +11,17 @@
     <legend>Rating</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.UserId)
+         @Html.DisplayNameFor(model => model.User.UserName)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.UserId)
+        @Html.DisplayFor(model => model.User.UserName)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.MemberId)
+         @Html.DisplayNameFor(model => model.Member.MemberName)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.MemberId)
+        @Html.DisplayFor(model => model.Member.MemberName)
     </div>
 
     <div class="display-label">
@@ -56,6 +56,6 @@
     @Html.AntiForgeryToken()
     <p>
         <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Назад", "Index")
+        @Html.ActionLink("Back to List", "Index")
     </p>
 }

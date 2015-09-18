@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Microsoft.Ajax.Utilities;
 
 namespace Berserk_Statistics_MVC.Models
 {
@@ -14,5 +15,7 @@ namespace Berserk_Statistics_MVC.Models
         public int Loss { get; set; }
         public int TournamentsNumber { get; set; }
         public decimal PercentPoint { get; set; }
+        public Member Member { get; set; }
+        public UserProfile User { get; set; }
     }
 }

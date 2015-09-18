@@ -16,5 +16,8 @@ namespace Berserk_Statistics_MVC.Models
         public int SecondMemberId { get; set; }
         public string SecondMemberName { get; set; }
         public Tournament Tournament { get; set; }
+        public Member FirstMember { get; set; }
+        public Member SecondMember { get; set; }
+        public UserProfile User { get; set; }
     }
 }

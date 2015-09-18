@@ -18,7 +18,8 @@ namespace Berserk_Statistics_MVC.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Ratings.ToList());
+            var ratings = db.Ratings.Include(r => r.Member).Include(r => r.User);
+            return View(ratings.ToList());
         }
 
         //
@@ -39,6 +40,8 @@ namespace Berserk_Statistics_MVC.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.MemberId = new SelectList(db.Members, "MemberId", "MemberName");
+            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName");
             return View();
         }
 
@@ -56,6 +59,8 @@ namespace Berserk_Statistics_MVC.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.MemberId = new SelectList(db.Members, "MemberId", "MemberName", rating.MemberId);
+            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName", rating.UserId);
             return View(rating);
         }
 
@@ -69,6 +74,8 @@ namespace Berserk_Statistics_MVC.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.MemberId = new SelectList(db.Members, "MemberId", "MemberName", rating.MemberId);
+            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName", rating.UserId);
             return View(rating);
         }
 
@@ -85,6 +92,8 @@ namespace Berserk_Statistics_MVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.MemberId = new SelectList(db.Members, "MemberId", "MemberName", rating.MemberId);
+            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName", rating.UserId);
             return View(rating);
         }
 

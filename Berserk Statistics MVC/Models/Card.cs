@@ -14,5 +14,6 @@ namespace Berserk_Statistics_MVC.Models
         public int Quantity { get; set; }
         public string Features { get; set; }
         public bool IsForSale { get; set; }
+        public UserProfile User { get; set; }
     }
 }

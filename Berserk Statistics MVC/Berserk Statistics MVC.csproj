@@ -184,8 +184,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\RatingController.cs" />
-    <Compile Include="Controllers\TournamentController.cs" />
     <Compile Include="Controllers\TournamentListController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -199,14 +199,10 @@
     <Compile Include="Models\Round.cs" />
     <Compile Include="Models\Tournament.cs" />
     <Compile Include="Models\TournamentList.cs" />
-    <Compile Include="Models\TournamentMember.cs" />
+    <Compile Include="Models\Member.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\DatabaseContext.mdf" />
-    <Content Include="App_Data\DatabaseContext_log.ldf">
-      <DependentUpon>DatabaseContext.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\GridStyles.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -318,28 +314,30 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Member\Details.cshtml" />
+    <Content Include="Views\Member\Create.cshtml" />
+    <Content Include="Views\Member\Edit.cshtml" />
+    <Content Include="Views\Member\Delete.cshtml" />
     <Content Include="Views\Rating\Index.cshtml" />
     <Content Include="Views\Rating\Details.cshtml" />
     <Content Include="Views\Rating\Create.cshtml" />
     <Content Include="Views\Rating\Edit.cshtml" />
     <Content Include="Views\Rating\Delete.cshtml" />
-    <Content Include="Views\Card\Index.cshtml" />
-    <Content Include="Views\Card\Details.cshtml" />
-    <Content Include="Views\Card\Create.cshtml" />
-    <Content Include="Views\Card\Edit.cshtml" />
-    <Content Include="Views\Card\Delete.cshtml" />
-    <Content Include="Views\Tournament\Index.cshtml" />
-    <Content Include="Views\Tournament\Details.cshtml" />
-    <Content Include="Views\Tournament\Create.cshtml" />
-    <Content Include="Views\Tournament\Edit.cshtml" />
-    <Content Include="Views\Tournament\Delete.cshtml" />
     <Content Include="Views\TournamentList\Index.cshtml" />
     <Content Include="Views\TournamentList\Details.cshtml" />
     <Content Include="Views\TournamentList\Create.cshtml" />
     <Content Include="Views\TournamentList\Edit.cshtml" />
     <Content Include="Views\TournamentList\Delete.cshtml" />
+    <Content Include="Views\Card\Index.cshtml" />
+    <Content Include="Views\Card\Details.cshtml" />
+    <Content Include="Views\Card\Create.cshtml" />
+    <Content Include="Views\Card\Edit.cshtml" />
+    <Content Include="Views\Card\Delete.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

@@ -18,7 +18,7 @@ namespace Berserk_Statistics_MVC
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new DbInitializer());
+            //Database.SetInitializer(new DbInitializer());
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);

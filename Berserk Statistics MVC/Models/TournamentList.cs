@@ -16,6 +16,7 @@ namespace Berserk_Statistics_MVC.Models
         public int RatingId { get; set; }
         public string RatingName { get; set; }
         public DateTime Date { get; set; }
-        //public Rating Rating { get; set; }
+        public Member Member { get; set; }
+        public UserProfile User { get; set; }
     }
 }

@@ -16,6 +16,7 @@ namespace Berserk_Statistics_MVC.Models
         public int TournamentsNumber { get; set; }
         public decimal PercentPoint { get; set; }
         public Member Member { get; set; }
+        public List<Tournament> Tournaments { get; set; }
         public UserProfile User { get; set; }
     }
 }

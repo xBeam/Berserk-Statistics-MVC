@@ -25,6 +25,12 @@ namespace Berserk_Statistics_MVC.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
         public string UserName { get; set; }
+        public List<Member> Members { get; set; }
+        public List<Rating> Ratings { get; set; }
+        public List<TournamentList> TournamentLists { get; set; }
+        public List<Tournament> Tournaments { get; set; }
+        public List<Round> Rounds { get; set; }
+        public List<Card> Cards { get; set; }
     }
 
     public class RegisterExternalLoginModel

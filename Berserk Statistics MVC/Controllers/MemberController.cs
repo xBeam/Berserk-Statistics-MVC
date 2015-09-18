@@ -18,7 +18,7 @@ namespace Berserk_Statistics_MVC.Controllers
 
         public ActionResult Index()
         {
-            var members = db.Members;//.Include(m => m.User);
+            var members = db.Members.Include(m => m.User);
             return View(members.ToList());
         }
 

@@ -17,7 +17,8 @@ namespace Berserk_Statistics_MVC.Models
         public int RatingId { get; set; }
         public Rating Rating { get; set; }
         public TournamentList TournamentList { get; set; }
-        public Member Member { get; set; }
+        public List<Member> Members { get; set; }
+        public List<Round> Rounds { get; set; }
         public UserProfile User { get; set; }
     }
 }

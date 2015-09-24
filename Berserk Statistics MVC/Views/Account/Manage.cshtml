@@ -1,6 +1,6 @@
 ﻿@model Berserk_Statistics_MVC.Models.LocalPasswordModel
 @{
-    ViewBag.Title = "Manage Account";
+    ViewBag.Title = "Управление аккаунтом";
 }
 
 <hgroup class="title">
@@ -9,7 +9,7 @@
 
 <p class="message-success">@ViewBag.StatusMessage</p>
 
-<p>You're logged in as <strong>@User.Identity.Name</strong>.</p>
+<p>Вы авторизированы как <strong>@User.Identity.Name</strong>.</p>
 
 @if (ViewBag.HasLocalPassword)
 {

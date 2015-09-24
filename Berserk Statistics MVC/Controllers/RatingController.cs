@@ -5,21 +5,33 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Berserk_Statistics_MVC.Infrastructure;
 using Berserk_Statistics_MVC.Models;
+using Statistics.Domain;
 
 namespace Berserk_Statistics_MVC.Controllers
 {
     public class RatingController : Controller
     {
         private DatabaseContext db = new DatabaseContext();
+        private IRatingRepository _ratings;
+        private IUserProfileRepository _users;
+
+        public RatingController() : this(new DalContext()) { }
+
+        private RatingController(DalContext context)
+        {
+            _users = context.Users;
+            _ratings = context.Ratings;
+        }
 
         //
         // GET: /Rating/
 
         public ActionResult Index()
         {
-            var ratings = db.Ratings.Include(r => r.Member).Include(r => r.User);
-            return View(ratings.ToList());
+            var ratings = db.Ratings.Include(r => r.Member).Include(r => r.Owner);
+            return View(_users.CurrentUser.Ratings.ToList());
         }
 
         //

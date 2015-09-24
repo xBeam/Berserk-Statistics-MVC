@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE html >
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -8,6 +8,7 @@
         @Styles.Render("~/Content/Site.css")
         @Scripts.Render("~/bundles/modernizr")
         @RenderSection("styles", required: false)
+        
     </head>
     <body>
         <header>
@@ -23,7 +24,7 @@
                         <ul id="menu">
                             <li>@Html.ActionLink("Главная", "Index", "Home")</li>
                             <li>@Html.ActionLink("Рейтинг", "Index", "Rating")</li>
-                            <li>@Html.ActionLink("Турниры", "Index", "TournamentList")</li>
+                            <li>@Html.ActionLink("Турниры", "Index", "Tournament")</li>
                             <li>@Html.ActionLink("Карты", "Index", "Card")</li>
                         </ul>
                     </nav>

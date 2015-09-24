@@ -1,75 +1,83 @@
-﻿@model Berserk_Statistics_MVC.Models.Rating
+﻿@model Statistics.Domain.Rating
 
 @{
     ViewBag.Title = "Create";
 }
 
 <h2>Create</h2>
+<section id="loginForm">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Rating</legend>
+        <fieldset>
+            <legend>Rating</legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UserId, "User")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("UserId", String.Empty)
-            @Html.ValidationMessageFor(model => model.UserId)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.UserId, "User")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("UserId", String.Empty)
+                @Html.ValidationMessageFor(model => model.UserId)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.MemberId, "Member")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("MemberId", String.Empty)
-            @Html.ValidationMessageFor(model => model.MemberId)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.MemberId, "Member")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("MemberId", String.Empty)
+                @Html.ValidationMessageFor(model => model.MemberId)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Win)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Win)
-            @Html.ValidationMessageFor(model => model.Win)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Win)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Win)
+                @Html.ValidationMessageFor(model => model.Win)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Loss)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Loss)
-            @Html.ValidationMessageFor(model => model.Loss)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Loss)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Loss)
+                @Html.ValidationMessageFor(model => model.Loss)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.TournamentsNumber)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.TournamentsNumber)
-            @Html.ValidationMessageFor(model => model.TournamentsNumber)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.TournamentsNumber)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.TournamentsNumber)
+                @Html.ValidationMessageFor(model => model.TournamentsNumber)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.PercentPoint)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.PercentPoint)
-            @Html.ValidationMessageFor(model => model.PercentPoint)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.PercentPoint)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.PercentPoint)
+                @Html.ValidationMessageFor(model => model.PercentPoint)
+            </div>
 
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-}
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+    }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</section>
+
+<section class="social" id="socialLoginForm">
+    <h2>Добавить участников.</h2>
+    @Html.ActionLink("Create New", "Create", "Member")
+</section>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

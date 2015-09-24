@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Statistics.Domain.Tournament>
+
+@{
+    ViewBag.Title = "Турниры";
+    var grid = new WebGrid(source: Model, rowsPerPage: 20);
+}
+
+<h2>Турниры</h2>
+
+@section styles
+{
+    <link href="~/Content/GridStyles.css" rel="stylesheet" />
+}
+
+<p>
+    @Html.ActionLink("Добавить новый", "Create")
+</p>
+
+@grid.GetHtml(tableStyle: "grid",
+              headerStyle: "header",
+              rowStyle: "row",
+              alternatingRowStyle: "alt-row",
+              footerStyle: "footer",
+              htmlAttributes: new { cellpadding = "6px", cellspacing = "0px" },
+              columns: grid.Columns(
+        //grid.Column(header: "Правка", format: @<a href="@Html.ActionLink("Edit", "Edit", new { id = @item.RatingId })">Править</a>),
+                grid.Column(columnName: "MemberId", header: "Участник"),
+                grid.Column(columnName: "TournamentsNumber", header: "Количество турниров"),
+                grid.Column(columnName: "Win", header: "Победы"),
+                grid.Column(columnName: "Loss", header: "Поражения"),
+                grid.Column(columnName: "PercentPoint", header: "Очки")
+        //grid.Column(header: "Удаление", format: @<a href="@Html.ActionLink("Delete", "Delete", new { id = @item.RatingId })">Удалить</a>)
+                )
+              )
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TournamentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Owner.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating.RatingId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TournamentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Owner.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rating.RatingId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TournamentId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TournamentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TournamentId })
+        </td>
+    </tr>
+}
+
+</table>

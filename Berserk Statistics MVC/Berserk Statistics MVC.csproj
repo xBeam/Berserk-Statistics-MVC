@@ -186,19 +186,22 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\RatingController.cs" />
-    <Compile Include="Controllers\TournamentListController.cs" />
+    <Compile Include="Controllers\RoundController.cs" />
+    <Compile Include="Controllers\TournamentController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\DalContext.cs" />
+    <Compile Include="Infrastructure\RatingRepository.cs" />
+    <Compile Include="Infrastructure\UserRepository.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Card.cs" />
-    <Compile Include="Models\DatabaseContext.cs" />
+    <Compile Include="Infrastructure\DatabaseContext.cs" />
     <Compile Include="Models\DbInitializer.cs" />
     <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\Round.cs" />
     <Compile Include="Models\Tournament.cs" />
-    <Compile Include="Models\TournamentList.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -314,32 +317,43 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Member\Index.cshtml" />
-    <Content Include="Views\Member\Details.cshtml" />
-    <Content Include="Views\Member\Create.cshtml" />
-    <Content Include="Views\Member\Edit.cshtml" />
-    <Content Include="Views\Member\Delete.cshtml" />
     <Content Include="Views\Rating\Index.cshtml" />
     <Content Include="Views\Rating\Details.cshtml" />
     <Content Include="Views\Rating\Create.cshtml" />
     <Content Include="Views\Rating\Edit.cshtml" />
     <Content Include="Views\Rating\Delete.cshtml" />
-    <Content Include="Views\TournamentList\Index.cshtml" />
-    <Content Include="Views\TournamentList\Details.cshtml" />
-    <Content Include="Views\TournamentList\Create.cshtml" />
-    <Content Include="Views\TournamentList\Edit.cshtml" />
-    <Content Include="Views\TournamentList\Delete.cshtml" />
     <Content Include="Views\Card\Index.cshtml" />
     <Content Include="Views\Card\Details.cshtml" />
     <Content Include="Views\Card\Create.cshtml" />
     <Content Include="Views\Card\Edit.cshtml" />
     <Content Include="Views\Card\Delete.cshtml" />
+    <Content Include="Views\Tournament\Index.cshtml" />
+    <Content Include="Views\Tournament\Details.cshtml" />
+    <Content Include="Views\Tournament\Create.cshtml" />
+    <Content Include="Views\Tournament\Edit.cshtml" />
+    <Content Include="Views\Tournament\Delete.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Member\Details.cshtml" />
+    <Content Include="Views\Member\Create.cshtml" />
+    <Content Include="Views\Member\Edit.cshtml" />
+    <Content Include="Views\Member\Delete.cshtml" />
+    <Content Include="Views\Round\Index.cshtml" />
+    <Content Include="Views\Round\Details.cshtml" />
+    <Content Include="Views\Round\Create.cshtml" />
+    <Content Include="Views\Round\Edit.cshtml" />
+    <Content Include="Views\Round\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Statistics.Domain\Statistics.Domain.csproj">
+      <Project>{F5F9C6DC-7799-4EE6-AB36-3AABA5A4974C}</Project>
+      <Name>Statistics.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

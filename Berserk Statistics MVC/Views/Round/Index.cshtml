@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Statistics.Domain.Round>
+
+@{
+    ViewBag.Title = "Туры";
+    var grid = new WebGrid(source: Model, rowsPerPage: 20);
+}
+
+<h2>Туры</h2>
+
+@section styles
+{
+    <link href="~/Content/GridStyles.css" rel="stylesheet" />
+}
+
+<p>
+    @Html.ActionLink("Добавить новый", "Create")
+</p>
+
+@grid.GetHtml(tableStyle: "grid",
+              headerStyle: "header",
+              rowStyle: "row",
+              alternatingRowStyle: "alt-row",
+              footerStyle: "footer",
+              htmlAttributes: new { cellpadding = "6px", cellspacing = "0px" },
+              columns: grid.Columns(
+        //grid.Column(header: "Правка", format: @<a href="@Html.ActionLink("Edit", "Edit", new { id = @item.RatingId })">Править</a>),
+                grid.Column(columnName: "RoundName", header: "Тур"),
+                grid.Column(columnName: "FirstMemberId", header: "Первый участник"),
+                grid.Column(columnName: "SecondMemberId", header: "Второй участник"),
+                grid.Column(columnName: "FirstMemberPoints", header: "Очки первого"),
+                grid.Column(columnName: "SecondMemberPoints", header: "Очки второго")
+        //grid.Column(header: "Удаление", format: @<a href="@Html.ActionLink("Delete", "Delete", new { id = @item.RatingId })">Удалить</a>)
+                )
+              )
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RoundName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tournament.TournamentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstMemberId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstMemberName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecondMemberId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecondMemberName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoundName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tournament.TournamentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstMemberId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstMemberName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecondMemberId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecondMemberName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RoundId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RoundId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RoundId })
+        </td>
+    </tr>
+}
+
+</table>

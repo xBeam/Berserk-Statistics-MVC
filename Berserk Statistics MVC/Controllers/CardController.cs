@@ -5,7 +5,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Berserk_Statistics_MVC.Infrastructure;
 using Berserk_Statistics_MVC.Models;
+using Statistics.Domain;
 
 namespace Berserk_Statistics_MVC.Controllers
 {
@@ -18,7 +20,7 @@ namespace Berserk_Statistics_MVC.Controllers
 
         public ActionResult Index()
         {
-            var cards = db.Cards.Include(c => c.User);
+            var cards = db.Cards.Include(c => c.Owner);
             return View(cards.ToList());
         }
 

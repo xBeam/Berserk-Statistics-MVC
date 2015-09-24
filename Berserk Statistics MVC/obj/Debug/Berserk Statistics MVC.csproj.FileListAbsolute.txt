@@ -84,3 +84,5 @@ F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\zh-Hant\Sys
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\obj\Debug\Berserk Statistics MVC.dll
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\obj\Debug\Berserk Statistics MVC.pdb
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\obj\Debug\Berserk Statistics MVC.csprojResolveAssemblyReference.cache
+F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\Statistics.Domain.exe
+F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\Statistics.Domain.pdb

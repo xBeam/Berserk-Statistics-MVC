@@ -1,0 +1,6 @@
+F:\Changes\C#files\Berserk Statistics MVC\Statistics.Domain\bin\Debug\Statistics.Domain.exe.config
+F:\Changes\C#files\Berserk Statistics MVC\Statistics.Domain\bin\Debug\Statistics.Domain.exe
+F:\Changes\C#files\Berserk Statistics MVC\Statistics.Domain\bin\Debug\Statistics.Domain.pdb
+F:\Changes\C#files\Berserk Statistics MVC\Statistics.Domain\obj\Debug\Statistics.Domain.csprojResolveAssemblyReference.cache
+F:\Changes\C#files\Berserk Statistics MVC\Statistics.Domain\obj\Debug\Statistics.Domain.exe
+F:\Changes\C#files\Berserk Statistics MVC\Statistics.Domain\obj\Debug\Statistics.Domain.pdb

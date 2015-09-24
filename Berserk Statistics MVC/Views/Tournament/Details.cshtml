@@ -1,0 +1,36 @@
+﻿@model Statistics.Domain.Tournament
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Tournament</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TournamentName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TournamentName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.User.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Rating.RatingId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Rating.RatingId)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.TournamentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -18,20 +18,17 @@ namespace Berserk_Statistics_MVC.Models
     //    public DbSet<UserProfile> UserProfiles { get; set; }
     //}
 
-    [Table("UserProfile")]
-    public class UserProfile
-    {
-        [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int UserId { get; set; }
-        public string UserName { get; set; }
-        public List<Member> Members { get; set; }
-        public List<Rating> Ratings { get; set; }
-        public List<TournamentList> TournamentLists { get; set; }
-        public List<Tournament> Tournaments { get; set; }
-        public List<Round> Rounds { get; set; }
-        public List<Card> Cards { get; set; }
-    }
+    //[Table("UserProfile")]
+    //public class UserProfile
+    //{
+    //    [Key]
+    //    [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+    //    public int UserId { get; set; }
+    //    public string UserName { get; set; }
+    //    public List<Rating> Ratings { get; set; }
+    //    public List<Tournament> Tournaments { get; set; }
+    //    public List<Card> Cards { get; set; }
+    //}
 
     public class RegisterExternalLoginModel
     {
@@ -72,7 +69,7 @@ namespace Berserk_Statistics_MVC.Models
         [Display(Name = "Пароль")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Запомнить меня")]
         public bool RememberMe { get; set; }
     }
 

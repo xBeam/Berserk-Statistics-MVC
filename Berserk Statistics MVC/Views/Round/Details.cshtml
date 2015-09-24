@@ -1,0 +1,57 @@
+﻿@model Statistics.Domain.Round
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Round</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RoundName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RoundName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tournament.TournamentName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tournament.TournamentName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstMemberId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstMemberId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstMemberName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstMemberName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SecondMemberId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SecondMemberId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SecondMemberName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SecondMemberName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.RoundId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

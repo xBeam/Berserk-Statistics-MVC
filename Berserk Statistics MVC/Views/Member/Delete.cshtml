@@ -1,4 +1,4 @@
-﻿@model Berserk_Statistics_MVC.Models.Member
+﻿@model Statistics.Domain.Member
 
 @{
     ViewBag.Title = "Delete";
@@ -15,13 +15,6 @@
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.MemberName)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.User.UserName)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.User.UserName)
     </div>
 
     <div class="display-label">

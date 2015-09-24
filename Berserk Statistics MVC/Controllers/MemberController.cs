@@ -5,7 +5,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Berserk_Statistics_MVC.Infrastructure;
 using Berserk_Statistics_MVC.Models;
+using Statistics.Domain;
 
 namespace Berserk_Statistics_MVC.Controllers
 {
@@ -18,8 +20,7 @@ namespace Berserk_Statistics_MVC.Controllers
 
         public ActionResult Index()
         {
-            var members = db.Members.Include(m => m.User);
-            return View(members.ToList());
+            return View(db.Members.ToList());
         }
 
         //
@@ -40,7 +41,6 @@ namespace Berserk_Statistics_MVC.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName");
             return View();
         }
 
@@ -58,7 +58,6 @@ namespace Berserk_Statistics_MVC.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName", member.UserId);
             return View(member);
         }
 
@@ -72,7 +71,6 @@ namespace Berserk_Statistics_MVC.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName", member.UserId);
             return View(member);
         }
 
@@ -89,7 +87,6 @@ namespace Berserk_Statistics_MVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName", member.UserId);
             return View(member);
         }
 

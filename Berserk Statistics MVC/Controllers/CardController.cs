@@ -5,12 +5,15 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Berserk_Statistics_MVC.Filters;
 using Berserk_Statistics_MVC.Infrastructure;
 using Berserk_Statistics_MVC.Models;
 using Statistics.Domain;
 
 namespace Berserk_Statistics_MVC.Controllers
 {
+    [Authorize]
+    [InitializeSimpleMembership]
     public class CardController : Controller
     {
         private DatabaseContext db = new DatabaseContext();

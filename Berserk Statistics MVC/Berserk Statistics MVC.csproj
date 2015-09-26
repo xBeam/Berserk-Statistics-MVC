@@ -199,8 +199,8 @@
     <Compile Include="Models\Card.cs" />
     <Compile Include="Infrastructure\DatabaseContext.cs" />
     <Compile Include="Models\DbInitializer.cs" />
-    <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\Round.cs" />
+    <Compile Include="Models\TestClass.cs" />
     <Compile Include="Models\Tournament.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -350,9 +350,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Statistics.Domain\Statistics.Domain.csproj">
-      <Project>{F5F9C6DC-7799-4EE6-AB36-3AABA5A4974C}</Project>
-      <Name>Statistics.Domain</Name>
+    <ProjectReference Include="..\Statistics.Domain.New\Statistics.Domain.New.csproj">
+      <Project>{f4eff0a5-4c8b-4ce6-884b-34610918f08b}</Project>
+      <Name>Statistics.Domain.New</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

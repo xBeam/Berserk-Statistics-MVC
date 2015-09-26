@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Berserk_Statistics_MVC.Models;
-using Statistics.Domain;
-using WebMatrix.WebData;
+﻿using System.Linq;
+using Statistics.Domain.New;
 
 namespace Berserk_Statistics_MVC.Infrastructure
 {

@@ -5,7 +5,6 @@ using System.Threading;
 using System.Web.Mvc;
 using Berserk_Statistics_MVC.Infrastructure;
 using WebMatrix.WebData;
-using Berserk_Statistics_MVC.Models;
 
 namespace Berserk_Statistics_MVC.Filters
 {

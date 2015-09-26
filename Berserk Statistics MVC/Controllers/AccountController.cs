@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using Berserk_Statistics_MVC.Infrastructure;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
-using Statistics.Domain;
+using Statistics.Domain.New;
 using WebMatrix.WebData;
 using Berserk_Statistics_MVC.Filters;
 using Berserk_Statistics_MVC.Models;

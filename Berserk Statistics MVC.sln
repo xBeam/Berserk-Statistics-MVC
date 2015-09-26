@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Berserk Statistics MVC", "Berserk Statistics MVC\Berserk Statistics MVC.csproj", "{435D0BF2-8707-41DF-92AB-0EF3A729BCED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statistics.Domain", "Statistics.Domain\Statistics.Domain.csproj", "{F5F9C6DC-7799-4EE6-AB36-3AABA5A4974C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statistics.Domain.New", "Statistics.Domain.New\Statistics.Domain.New.csproj", "{F4EFF0A5-4C8B-4CE6-884B-34610918F08B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F5F9C6DC-7799-4EE6-AB36-3AABA5A4974C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5F9C6DC-7799-4EE6-AB36-3AABA5A4974C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5F9C6DC-7799-4EE6-AB36-3AABA5A4974C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4EFF0A5-4C8B-4CE6-884B-34610918F08B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4EFF0A5-4C8B-4CE6-884B-34610918F08B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4EFF0A5-4C8B-4CE6-884B-34610918F08B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4EFF0A5-4C8B-4CE6-884B-34610918F08B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

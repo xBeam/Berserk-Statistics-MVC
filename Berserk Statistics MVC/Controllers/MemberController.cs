@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Berserk_Statistics_MVC.Filters;
 using Berserk_Statistics_MVC.Infrastructure;
-using Berserk_Statistics_MVC.Models;
-using Statistics.Domain;
+using Statistics.Domain.New;
 
 namespace Berserk_Statistics_MVC.Controllers
 {

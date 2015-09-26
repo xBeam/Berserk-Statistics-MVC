@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Statistics.Domain;
+﻿using System.Linq;
+using Statistics.Domain.New;
 using WebMatrix.WebData;
 
 namespace Berserk_Statistics_MVC.Infrastructure

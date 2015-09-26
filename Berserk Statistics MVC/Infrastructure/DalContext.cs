@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Statistics.Domain;
+﻿using Statistics.Domain.New;
 
 namespace Berserk_Statistics_MVC.Infrastructure
 {

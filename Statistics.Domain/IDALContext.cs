@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Statistics.Domain
+﻿namespace Statistics.Domain
 {
     public interface IDalContext
     {

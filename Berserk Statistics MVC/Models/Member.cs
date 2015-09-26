@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Berserk_Statistics_MVC.Models
+﻿namespace Berserk_Statistics_MVC.Models
 {
     //public class Member
     //{

@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using Statistics.Domain;
+using Statistics.Domain.New;
 
 namespace Berserk_Statistics_MVC.Infrastructure
 {

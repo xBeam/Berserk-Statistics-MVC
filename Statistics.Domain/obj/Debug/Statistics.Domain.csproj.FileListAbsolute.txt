@@ -4,3 +4,13 @@ F:\Changes\C#files\Berserk Statistics MVC\Statistics.Domain\bin\Debug\Statistics
 F:\Changes\C#files\Berserk Statistics MVC\Statistics.Domain\obj\Debug\Statistics.Domain.csprojResolveAssemblyReference.cache
 F:\Changes\C#files\Berserk Statistics MVC\Statistics.Domain\obj\Debug\Statistics.Domain.exe
 F:\Changes\C#files\Berserk Statistics MVC\Statistics.Domain\obj\Debug\Statistics.Domain.pdb
+C:\Users\Nikita\Documents\Projects\Berserk-Statistics-MVC\Statistics.Domain\bin\Debug\Statistics.Domain.exe.config
+C:\Users\Nikita\Documents\Projects\Berserk-Statistics-MVC\Statistics.Domain\bin\Debug\Statistics.Domain.exe
+C:\Users\Nikita\Documents\Projects\Berserk-Statistics-MVC\Statistics.Domain\bin\Debug\Statistics.Domain.pdb
+C:\Users\Nikita\Documents\Projects\Berserk-Statistics-MVC\Statistics.Domain\obj\Debug\Statistics.Domain.exe
+C:\Users\Nikita\Documents\Projects\Berserk-Statistics-MVC\Statistics.Domain\obj\Debug\Statistics.Domain.pdb
+C:\Users\Nikita\Documents\Projects\Berserk-Statistics-MVC\Statistics.Domain\bin\Debug\EntityFramework.dll
+C:\Users\Nikita\Documents\Projects\Berserk-Statistics-MVC\Statistics.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nikita\Documents\Projects\Berserk-Statistics-MVC\Statistics.Domain\bin\Debug\EntityFramework.xml
+C:\Users\Nikita\Documents\Projects\Berserk-Statistics-MVC\Statistics.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nikita\Documents\Projects\Berserk-Statistics-MVC\Statistics.Domain\obj\Debug\Statistics.Domain.csprojResolveAssemblyReference.cache

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Web.WebPages.OAuth;
-using Berserk_Statistics_MVC.Models;
-
-namespace Berserk_Statistics_MVC
+﻿namespace Berserk_Statistics_MVC
 {
     public static class AuthConfig
     {

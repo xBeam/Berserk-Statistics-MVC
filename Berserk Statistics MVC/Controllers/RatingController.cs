@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Berserk_Statistics_MVC.Filters;
 using Berserk_Statistics_MVC.Infrastructure;
-using Berserk_Statistics_MVC.Models;
-using Statistics.Domain;
+using Statistics.Domain.New;
 
 namespace Berserk_Statistics_MVC.Controllers
 {
@@ -34,7 +30,7 @@ namespace Berserk_Statistics_MVC.Controllers
         public ActionResult Index()
         {
             var ratings = db.Ratings.Include(r => r.Member).Include(r => r.Owner);
-            return View(_users.CurrentUser.Ratings.ToList());
+            return View(new List<Rating>());
         }
 
         //

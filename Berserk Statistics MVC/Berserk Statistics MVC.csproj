@@ -200,7 +200,6 @@
     <Compile Include="Infrastructure\DatabaseContext.cs" />
     <Compile Include="Models\DbInitializer.cs" />
     <Compile Include="Models\Round.cs" />
-    <Compile Include="Models\TestClass.cs" />
     <Compile Include="Models\Tournament.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -350,9 +349,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Statistics.Domain.New\Statistics.Domain.New.csproj">
+    <ProjectReference Include="..\Statistics.Domain.New\Statistics.Domain.csproj">
       <Project>{f4eff0a5-4c8b-4ce6-884b-34610918f08b}</Project>
-      <Name>Statistics.Domain.New</Name>
+      <Name>Statistics.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

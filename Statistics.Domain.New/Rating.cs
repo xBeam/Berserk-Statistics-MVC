@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Statistics.Domain.New
+namespace Statistics.Domain
 {
     public class Rating
     {
@@ -12,7 +12,7 @@ namespace Statistics.Domain.New
         public int TournamentsNumber { get; set; }
         public decimal PercentPoint { get; set; }
         public Member Member { get; set; }
-        public List<Tournament> Tournaments { get; set; }
+        public ICollection<Tournament> Tournaments { get; set; }
         public UserProfile Owner { get; set; }
     }
 }

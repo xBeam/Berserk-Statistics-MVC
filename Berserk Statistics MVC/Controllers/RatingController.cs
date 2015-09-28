@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Linq;
 using System.Web.Mvc;
 using Berserk_Statistics_MVC.Filters;
 using Berserk_Statistics_MVC.Infrastructure;
-using Statistics.Domain.New;
+using Statistics.Domain;
 
 namespace Berserk_Statistics_MVC.Controllers
 {
@@ -18,7 +19,7 @@ namespace Berserk_Statistics_MVC.Controllers
 
         public RatingController() : this(new DalContext()) { }
 
-        private RatingController(DalContext context)
+        private RatingController(IDalContext context)
         {
             _users = context.Users;
             _ratings = context.Ratings;
@@ -30,7 +31,7 @@ namespace Berserk_Statistics_MVC.Controllers
         public ActionResult Index()
         {
             var ratings = db.Ratings.Include(r => r.Member).Include(r => r.Owner);
-            return View(new List<Rating>());
+            return View(_users.CurrentUser.Ratings.ToList());
         }
 
         //

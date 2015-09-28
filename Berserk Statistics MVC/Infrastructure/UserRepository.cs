@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Statistics.Domain.New;
+using Statistics.Domain;
 using WebMatrix.WebData;
 
 namespace Berserk_Statistics_MVC.Infrastructure

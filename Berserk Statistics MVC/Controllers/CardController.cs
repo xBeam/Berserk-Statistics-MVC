@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Berserk_Statistics_MVC.Filters;
 using Berserk_Statistics_MVC.Infrastructure;
-using Statistics.Domain.New;
+using Statistics.Domain;
 
 namespace Berserk_Statistics_MVC.Controllers
 {

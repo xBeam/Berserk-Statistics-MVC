@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Statistics.Domain.New
+namespace Statistics.Domain
 {
     public interface IUserProfileRepository
     {

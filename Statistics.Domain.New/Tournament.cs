@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Statistics.Domain.New
+namespace Statistics.Domain
 {
     public class Tournament
     {
@@ -9,7 +9,7 @@ namespace Statistics.Domain.New
         public int UserId { get; set; }
         public int RatingId { get; set; }
         public Rating Rating { get; set; }
-        public List<Round> Rounds { get; set; }
+        public ICollection<Round> Rounds { get; set; }
         public UserProfile Owner { get; set; }
     }
 }

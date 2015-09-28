@@ -1,8 +1,8 @@
-﻿using Statistics.Domain.New;
+﻿using Statistics.Domain;
 
 namespace Berserk_Statistics_MVC.Infrastructure
 {
-    public class DalContext :IDalContext
+    public class DalContext : IDalContext
     {
         DatabaseContext _database;
         private IUserProfileRepository _users;

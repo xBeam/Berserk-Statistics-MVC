@@ -1,4 +1,4 @@
-﻿namespace Statistics.Domain.New
+﻿namespace Statistics.Domain
 {
     public class Round
     {

@@ -7,7 +7,7 @@ using System.Web.Security;
 using Berserk_Statistics_MVC.Infrastructure;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
-using Statistics.Domain.New;
+using Statistics.Domain;
 using WebMatrix.WebData;
 using Berserk_Statistics_MVC.Filters;
 using Berserk_Statistics_MVC.Models;

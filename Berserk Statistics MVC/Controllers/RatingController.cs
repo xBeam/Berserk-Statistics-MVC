@@ -65,8 +65,10 @@ namespace Berserk_Statistics_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Ratings.Add(rating);
-                db.SaveChanges();
+                rating.Owner = _users.CurrentUser;
+                _ratings.InsertOrUpdate(rating);
+                _ratings.Save();
+                
                 return RedirectToAction("Index");
             }
 
@@ -80,6 +82,8 @@ namespace Berserk_Statistics_MVC.Controllers
 
         public ActionResult Edit(int id = 0)
         {
+            return View(_ratings.All.FirstOrDefault(c => c.RatingId == id));
+
             Rating rating = db.Ratings.Find(id);
             if (rating == null)
             {
@@ -99,10 +103,11 @@ namespace Berserk_Statistics_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(rating).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                _ratings.InsertOrUpdate(rating);
+                _ratings.Save();
             }
+            return RedirectToAction("Index");
+
             ViewBag.MemberId = new SelectList(db.Members, "MemberId", "MemberName", rating.MemberId);
             ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName", rating.UserId);
             return View(rating);
@@ -113,12 +118,7 @@ namespace Berserk_Statistics_MVC.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Rating rating = db.Ratings.Find(id);
-            if (rating == null)
-            {
-                return HttpNotFound();
-            }
-            return View(rating);
+            return View(_ratings.All.FirstOrDefault(c => c.RatingId == id));
         }
 
         //
@@ -128,9 +128,9 @@ namespace Berserk_Statistics_MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Rating rating = db.Ratings.Find(id);
-            db.Ratings.Remove(rating);
-            db.SaveChanges();
+            _ratings.Remove(_ratings.All.FirstOrDefault(c=>c.RatingId == id));
+            _ratings.Save();
+
             return RedirectToAction("Index");
         }
 

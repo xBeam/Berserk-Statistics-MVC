@@ -12,7 +12,7 @@ namespace Statistics.Domain
         public int UserId { get; set; }
         public string UserName { get; set; }
         public ICollection<Rating> Ratings { get; set; }
-        public List<Tournament> Tournaments { get; set; }
-        public List<Card> Cards { get; set; }
+        public ICollection<Tournament> Tournaments { get; set; }
+        public ICollection<Card> Cards { get; set; }
     }
 }

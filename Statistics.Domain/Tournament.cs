@@ -9,7 +9,7 @@ namespace Statistics.Domain
         public int UserId { get; set; }
         public int RatingId { get; set; }
         public Rating Rating { get; set; }
-        public List<Round> Rounds { get; set; }
+        public ICollection<Round> Rounds { get; set; }
         public UserProfile Owner { get; set; }
     }
 }

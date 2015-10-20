@@ -48,6 +48,7 @@
                   footerStyle: "footer",
                   htmlAttributes: new { cellpadding = "6px", cellspacing = "0px" },
                   columns: grid.Columns(
+                    grid.Column(header: "Правка", format: @<a href="@Html.ActionLink("Edit", "Edit", new { id = @item.CardId })">Править</a>),
                     grid.Column(columnName: "CardName", header: "Название"),
                     grid.Column(columnName: "Edition", header: "Выпуск"),
                     grid.Column(columnName: "Quantity", header: "Количество"),

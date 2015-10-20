@@ -26,6 +26,8 @@ namespace Berserk_Statistics_MVC.Infrastructure
                     _context
                     .UserProfiles
                     .Include("Ratings")
+                    .Include("Tournaments")
+                    .Include("Cards")
                     .FirstOrDefault(c => c.UserId == WebSecurity.CurrentUserId);
 
             }

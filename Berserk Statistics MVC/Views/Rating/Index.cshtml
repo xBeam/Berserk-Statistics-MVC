@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Рейтинг";
     var grid = new WebGrid(source: Model, rowsPerPage: 20);
+    
 }
 
 <h2>Рейтинг</h2>
@@ -13,7 +14,7 @@
 }
 
 <p>
-    @Html.ActionLink("Добавить новый", "Create")
+    @Html.ActionLink("Добавить участника", "Create")
 </p>
 
 @grid.GetHtml(tableStyle: "grid",
@@ -21,19 +22,24 @@
               rowStyle: "row",
               alternatingRowStyle: "alt-row",
               footerStyle: "footer",
-              htmlAttributes: new { cellpadding = "6px", cellspacing = "0px" },
+              htmlAttributes: new { id = "grid", cellpadding = "6px", cellspacing = "0px", },//id = @Model.First().},
               columns: grid.Columns(
-        //grid.Column(header: "Правка", format: @<a href="@Html.ActionLink("Edit", "Edit", new { id = @item.RatingId })">Править</a>),
+                grid.Column(header: "Правка", format: @<a href="@Html.ActionLink("Edit", "Edit", new { id = "grid" })">Править</a>),
                 grid.Column(columnName: "MemberId", header: "Участник"),
                 grid.Column(columnName: "TournamentsNumber", header: "Количество турниров"),
                 grid.Column(columnName: "Win", header: "Победы"),
                 grid.Column(columnName: "Loss", header: "Поражения"),
-                grid.Column(columnName: "PercentPoint", header: "Очки")
-        //grid.Column(header: "Удаление", format: @<a href="@Html.ActionLink("Delete", "Delete", new { id = @item.RatingId })">Удалить</a>)
+                grid.Column(columnName: "PercentPoint", header: "Очки"),
+                grid.Column(header: "Удаление", format: @<a href="@Html.ActionLink("Delete", "Delete", new { id = @item.RatingId })">Удалить</a>)   
+                @*grid.Column("Action", format: @<text>  
+                                <button class="edit-user display-mode" >Edit</button>  
+                                <button class="save-user edit-mode"  >Save</button>  
+                                <button class="cancel-user edit-mode" >Cancel</button>  
+                            </text>,  style: "col3Width" , canSort: false)*@
                 )
               )
-
-
+@*grid.Column(format: (item) => Html.ActionLink("Edit", "ActionName", new { param1 = "send id here", param2 = "xtra param" }))
+grid.Column(format: (item) => Html.ActionLink("Delete", "ActionName2", new { param1 = "hello", param2 = "bye" }))*@
 @*<aside>
     <h3>Aside Title</h3>
     <p>

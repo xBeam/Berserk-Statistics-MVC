@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -30,6 +29,7 @@ namespace Berserk_Statistics_MVC.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.MemberId = new SelectList(db.Members, "MemberId", "MemberName");
             var ratings = db.Ratings.Include(r => r.Member).Include(r => r.Owner);
             return View(_users.CurrentUser.Ratings.ToList());
         }
@@ -67,6 +67,7 @@ namespace Berserk_Statistics_MVC.Controllers
             if (ModelState.IsValid)
             {
                 rating.Owner = _users.CurrentUser;
+                rating.PercentPoint = rating.TournamentsNumber == 0 ? 0 : ((decimal)rating.Win / (decimal)(rating.TournamentsNumber * 3)) * 100;
                 _ratings.InsertOrUpdate(rating);
                 _ratings.Save();
                 

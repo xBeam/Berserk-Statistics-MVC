@@ -12,6 +12,16 @@ namespace Berserk_Statistics_MVC.Controllers
     public class MemberController : Controller
     {
         private DatabaseContext db = new DatabaseContext();
+        private IMemberRepository _members;
+        private IUserProfileRepository _users;
+
+        public MemberController() : this(new DalContext()) { }
+
+        private MemberController(IDalContext context)
+        {
+            _users = context.Users;
+            _members = context.Members;
+        }
 
         //
         // GET: /Member/
@@ -19,6 +29,15 @@ namespace Berserk_Statistics_MVC.Controllers
         public ActionResult Index()
         {
             return View(db.Members.ToList());
+        }
+
+        //
+        // GET: /Member/
+        public ActionResult GetTournamentMember()
+        {
+           // var members = db.Members.Include(r => r.Owner);
+            //return View(db.Members.ToList());
+            return View(_users.CurrentUser.Ratings.ToList());
         }
 
         //
@@ -49,10 +68,13 @@ namespace Berserk_Statistics_MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Member member)
         {
+            ViewBag.MemberId = new SelectList(db.Members, "MemberId", "MemberName");
+            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName");
             if (ModelState.IsValid)
             {
                 db.Members.Add(member);
                 db.SaveChanges();
+                return View("~/Views/Rating/Create.cshtml");
                 return RedirectToAction("Index");
             }
 

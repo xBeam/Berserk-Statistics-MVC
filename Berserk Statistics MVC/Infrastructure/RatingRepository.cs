@@ -19,7 +19,7 @@ namespace Berserk_Statistics_MVC.Infrastructure
 
         void IRatingRepository.InsertOrUpdate(Rating rating)
         {
-            if (rating.UserId == default (int))
+            if (rating.RatingId == default (int))
             {
                 _context.Ratings.Add(rating);
             }

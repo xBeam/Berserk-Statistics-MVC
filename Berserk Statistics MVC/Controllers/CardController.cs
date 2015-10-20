@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using Berserk_Statistics_MVC.Filters;
 using Berserk_Statistics_MVC.Infrastructure;
 using Statistics.Domain;
+using System.Threading;
 
 namespace Berserk_Statistics_MVC.Controllers
 {
@@ -13,14 +14,34 @@ namespace Berserk_Statistics_MVC.Controllers
     public class CardController : Controller
     {
         private DatabaseContext db = new DatabaseContext();
+        private ICardRepository _cards;
+        private IUserProfileRepository _users;
+
+        public CardController() : this(new DalContext()) { }
+
+        private CardController(IDalContext context)
+        {
+            _users = context.Users;
+            _cards = context.Cards;
+        }
 
         //
         // GET: /Card/
-
         public ActionResult Index()
         {
             var cards = db.Cards.Include(c => c.Owner);
-            return View(cards.ToList());
+            //return View(cards);
+            return View(_users.CurrentUser.Cards.Where(c=>c.IsForSale == false).ToList());
+        }
+
+        public ActionResult PostIndex(bool IsForSale)
+        {
+            if (IsForSale)
+            {
+                return View(_users.CurrentUser.Cards.Where(c => c.IsForSale == true).ToList());
+                
+            }
+            return View(_users.CurrentUser.Cards.Where(c => c.IsForSale == false).ToList());
         }
 
         //
@@ -54,8 +75,10 @@ namespace Berserk_Statistics_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Cards.Add(card);
-                db.SaveChanges();
+                card.Owner = _users.CurrentUser;
+                _cards.InsertOrUpdate(card);
+                _cards.Save();
+
                 return RedirectToAction("Index");
             }
 
@@ -68,6 +91,8 @@ namespace Berserk_Statistics_MVC.Controllers
 
         public ActionResult Edit(int id = 0)
         {
+            return View(_cards.All.FirstOrDefault(c => c.CardId == id));
+
             Card card = db.Cards.Find(id);
             if (card == null)
             {
@@ -86,10 +111,11 @@ namespace Berserk_Statistics_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(card).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                _cards.InsertOrUpdate(card);
+                _cards.Save();
             }
+            return RedirectToAction("Index");
+
             ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName", card.UserId);
             return View(card);
         }
@@ -99,12 +125,7 @@ namespace Berserk_Statistics_MVC.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Card card = db.Cards.Find(id);
-            if (card == null)
-            {
-                return HttpNotFound();
-            }
-            return View(card);
+            return View(_cards.All.FirstOrDefault(c => c.CardId == id));
         }
 
         //
@@ -114,9 +135,8 @@ namespace Berserk_Statistics_MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Card card = db.Cards.Find(id);
-            db.Cards.Remove(card);
-            db.SaveChanges();
+            _cards.Remove(_cards.All.FirstOrDefault(c => c.CardId == id));
+            _cards.Save();
             return RedirectToAction("Index");
         }
 

@@ -8,6 +8,7 @@ namespace Statistics.Domain
         public string MemberName { get; set; }
         public string DeckList { get; set; }
         public ICollection<Round> Rounds { get; set; }
+        public ICollection<Tournament> Tournaments { get; set; }
         public ICollection<Rating> Ratings { get; set; }
     }
 }

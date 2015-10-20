@@ -15,12 +15,9 @@ F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\Microsoft.W
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\Microsoft.Web.WebPages.OAuth.dll
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\Newtonsoft.Json.dll
-F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\System.Net.Http.Formatting.dll
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\System.Spatial.dll
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\System.Web.Helpers.dll
-F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\System.Web.Http.dll
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\System.Web.Http.OData.dll
-F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\System.Web.Http.WebHost.dll
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\System.Web.Mvc.dll
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\System.Web.Optimization.dll
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\System.Web.Razor.dll
@@ -32,10 +29,7 @@ F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\WebMatrix.D
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\WebMatrix.WebData.dll
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\EntityFramework.xml
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\Newtonsoft.Json.xml
-F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\System.Net.Http.Formatting.xml
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\System.Web.Helpers.xml
-F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\System.Web.Http.xml
-F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\System.Web.Http.WebHost.xml
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\System.Web.Mvc.xml
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\System.Web.Razor.xml
 F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\System.Web.WebPages.xml
@@ -172,5 +166,5 @@ C:\Users\Nikita\Documents\Projects\Berserk-Statistics-MVC\Berserk Statistics MVC
 C:\Users\Nikita\Documents\Projects\Berserk-Statistics-MVC\Berserk Statistics MVC\obj\Debug\Berserk Statistics MVC.pdb
 C:\Users\Nikita\Documents\Projects\Berserk-Statistics-MVC\Berserk Statistics MVC\bin\Statistics.Domain.New.dll
 C:\Users\Nikita\Documents\Projects\Berserk-Statistics-MVC\Berserk Statistics MVC\bin\Statistics.Domain.New.pdb
-F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\Statistics.Domain.New.dll
-F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\Statistics.Domain.New.pdb
+F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\Statistics.Domain.dll
+F:\Changes\C#files\Berserk Statistics MVC\Berserk Statistics MVC\bin\Statistics.Domain.pdb

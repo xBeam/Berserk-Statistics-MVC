@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Statistics.Domain
 {
@@ -9,6 +10,8 @@ namespace Statistics.Domain
         public int UserId { get; set; }
         public int RatingId { get; set; }
         public Rating Rating { get; set; }
+        public Member Member { get; set; }
+        //public DateTime Date { get; set; }
         public ICollection<Round> Rounds { get; set; }
         public UserProfile Owner { get; set; }
     }

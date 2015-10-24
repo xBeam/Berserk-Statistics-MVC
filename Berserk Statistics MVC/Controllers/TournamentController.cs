@@ -29,9 +29,6 @@ namespace Berserk_Statistics_MVC.Controllers
 
         public ActionResult Index()
         {
-            var tournaments = db.Tournaments.Include(t => t.Rating).Include(t => t.Owner).Include(t => t.Rounds);
-            //return View(tournaments);
-
             return View(_users.CurrentUser.Tournaments.ToList());
         }
 
@@ -74,8 +71,6 @@ namespace Berserk_Statistics_MVC.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.RatingId = new SelectList(db.Ratings, "RatingId", "RatingId", tournament.RatingId);
-            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName", tournament.UserId);
             return View(tournament);
         }
 
@@ -85,15 +80,6 @@ namespace Berserk_Statistics_MVC.Controllers
         public ActionResult Edit(int id = 0)
         {
             return View(_tournaments.All.FirstOrDefault(c => c.TournamentId == id));
-
-            Tournament tournament = db.Tournaments.Find(id);
-            if (tournament == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.RatingId = new SelectList(db.Ratings, "RatingId", "RatingId", tournament.RatingId);
-            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName", tournament.UserId);
-            return View(tournament);
         }
 
         //
@@ -108,10 +94,6 @@ namespace Berserk_Statistics_MVC.Controllers
                 _tournaments.InsertOrUpdate(tournament);
                 _tournaments.Save();
             }
-            return RedirectToAction("Index");
-
-            ViewBag.RatingId = new SelectList(db.Ratings, "RatingId", "RatingId", tournament.RatingId);
-            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName", tournament.UserId);
             return View(tournament);
         }
 

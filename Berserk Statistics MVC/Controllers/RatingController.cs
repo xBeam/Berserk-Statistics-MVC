@@ -31,7 +31,7 @@ namespace Berserk_Statistics_MVC.Controllers
         {
             ViewBag.MemberId = new SelectList(db.Members, "MemberId", "MemberName");
             var ratings = db.Ratings.Include(r => r.Member).Include(r => r.Owner);
-            return View(_users.CurrentUser.Ratings.ToList());
+            return null;
         }
 
         //

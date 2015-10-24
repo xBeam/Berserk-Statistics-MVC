@@ -30,19 +30,18 @@ namespace Berserk_Statistics_MVC.Controllers
         public ActionResult Index()
         {
             var cards = db.Cards.Include(c => c.Owner);
-            //return View(cards);
-            return View(_users.CurrentUser.Cards.Where(c=>c.IsForSale == false).ToList());
+            return View(cards);
         }
 
-        public ActionResult PostIndex(bool IsForSale)
-        {
-            if (IsForSale)
-            {
-                return View(_users.CurrentUser.Cards.Where(c => c.IsForSale == true).ToList());
+        //public ActionResult PostIndex(bool IsForSale)
+        //{
+        //    if (IsForSale)
+        //    {
+        //        return View(_users.CurrentUser.Cards.Where(c => c.IsForSale == true).ToList());
                 
-            }
-            return View(_users.CurrentUser.Cards.Where(c => c.IsForSale == false).ToList());
-        }
+        //    }
+        //    return View(_users.CurrentUser.Cards.Where(c => c.IsForSale == false).ToList());
+        //}
 
         //
         // GET: /Card/Details/5

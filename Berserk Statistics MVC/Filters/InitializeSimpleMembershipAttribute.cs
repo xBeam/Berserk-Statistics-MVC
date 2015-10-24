@@ -38,7 +38,7 @@ namespace Berserk_Statistics_MVC.Filters
                         }
                     }
 
-                    WebSecurity.InitializeDatabaseConnection("DatabaseContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    WebSecurity.InitializeDatabaseConnection("BerserkDB", "UserProfile", "UserId", "UserName", autoCreateTables: true);
                 }
                 catch (Exception ex)
                 {

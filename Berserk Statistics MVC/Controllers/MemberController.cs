@@ -37,7 +37,7 @@ namespace Berserk_Statistics_MVC.Controllers
         {
            // var members = db.Members.Include(r => r.Owner);
             //return View(db.Members.ToList());
-            return View(_users.CurrentUser.Ratings.ToList());
+            return null as ActionResult;
         }
 
         //

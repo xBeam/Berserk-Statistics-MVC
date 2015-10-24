@@ -7,7 +7,7 @@ namespace Berserk_Statistics_MVC.Infrastructure
     public class DatabaseContext : DbContext
     {
         public DatabaseContext() 
-            : base("name=DatabaseContext")
+            : base("name=BerserkDB")
         {
         }
 

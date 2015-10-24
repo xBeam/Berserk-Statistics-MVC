@@ -16,51 +16,12 @@
     @Html.ActionLink("Добавить новый", "Create")
 </p>
 
-@grid.GetHtml(tableStyle: "grid",
-              headerStyle: "header",
-              rowStyle: "row",
+@grid.GetHtml(rowStyle: "row",
               alternatingRowStyle: "alt-row",
               footerStyle: "footer",
               htmlAttributes: new { cellpadding = "6px", cellspacing = "0px" },
               columns: grid.Columns(
-        //grid.Column(header: "Правка", format: @<a href="@Html.ActionLink("Edit", "Edit", new { id = @item.RatingId })">Править</a>),
-                grid.Column(columnName: "TournamentName", header: "Название турнира"),
-                grid.Column(columnName: "UserId", header: "Пользователь"),
-                grid.Column(columnName: "RatingId", header: "Рейтинг")
-        //grid.Column(header: "Удаление", format: @<a href="@Html.ActionLink("Delete", "Delete", new { id = @item.RatingId })">Удалить</a>)
+                grid.Column(columnName: "TournamentName", header: "Название турнира")
                 )
               )
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TournamentName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Owner.UserName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rating.RatingId)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TournamentName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Owner.UserName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rating.RatingId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TournamentId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TournamentId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TournamentId })
-        </td>
-    </tr>
-}
-
-</table>

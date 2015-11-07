@@ -349,6 +349,7 @@
     <Content Include="Views\Round\Edit.cshtml" />
     <Content Include="Views\Round\Delete.cshtml" />
     <Content Include="Views\Card\PostIndex.cshtml" />
+    <Content Include="Views\Tournament\Members.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

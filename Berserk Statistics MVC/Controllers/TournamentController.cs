@@ -74,6 +74,16 @@ namespace Berserk_Statistics_MVC.Controllers
             return View(tournament);
         }
 
+        public ActionResult Members(int id = 0)
+        {
+            //Tournament tournament = db.Tournaments.Find(id);
+            //if (tournament == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            return View();
+        }
+
         //
         // GET: /Tournament/Edit/5
 

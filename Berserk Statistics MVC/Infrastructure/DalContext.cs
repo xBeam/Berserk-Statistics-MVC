@@ -6,7 +6,6 @@ namespace Berserk_Statistics_MVC.Infrastructure
     {
         DatabaseContext _database;
         private IUserProfileRepository _users;
-        private IRatingRepository _ratings;
         private ITournamentRepository _tournaments;
         private ICardRepository _cards;
         private IMemberRepository _members;
@@ -25,18 +24,6 @@ namespace Berserk_Statistics_MVC.Infrastructure
                     _users = new UserRepository(_database);
                 }
                 return _users;
-            }
-        }
-
-        public IRatingRepository Ratings
-        {
-            get
-            {
-                if (_ratings == null)
-                {
-                    _ratings = new RatingRepository(_database);
-                }
-                return _ratings;
             }
         }
 

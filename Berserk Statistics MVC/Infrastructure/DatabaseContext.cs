@@ -11,8 +11,6 @@ namespace Berserk_Statistics_MVC.Infrastructure
         {
         }
 
-        public DbSet<Rating> Ratings { get; set; }
-
         public DbSet<Tournament> Tournaments { get; set; }
 
         public DbSet<Card> Cards { get; set; }

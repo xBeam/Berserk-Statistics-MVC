@@ -10,18 +10,50 @@
 @section styles
 {
     <link href="~/Content/GridStyles.css" rel="stylesheet" />
+    @Styles.Render("~/Content/themes/base/css")
+    
 }
 
 <p>
     @Html.ActionLink("Добавить новый", "Create")
 </p>
 
-@grid.GetHtml(rowStyle: "row",
-              alternatingRowStyle: "alt-row",
-              footerStyle: "footer",
-              htmlAttributes: new { cellpadding = "6px", cellspacing = "0px" },
-              columns: grid.Columns(
-                grid.Column(columnName: "TournamentName", header: "Название турнира")
-                )
-              )
+<table id="example" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Creation Date</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Creation Date</th>
+            <th></th>
+        </tr>
+    </tfoot>
+
+    <tbody>
+        @foreach (var tournament in Model)
+        {
+            <tr>
+                <td>@tournament.TournamentName</td>
+                <td>@tournament.Date</td>
+                <td><a class="btn btn-info btn-sm active" href="@Url.Action("Edit", "Tournament", new { id = tournament.TournamentId })" aria-controls="example" data-dt-idx="1">Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+}
 

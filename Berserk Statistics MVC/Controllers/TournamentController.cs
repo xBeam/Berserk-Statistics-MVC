@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -50,7 +51,6 @@ namespace Berserk_Statistics_MVC.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.RatingId = new SelectList(db.Ratings, "RatingId", "RatingId");
             ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName");
             return View();
         }
@@ -65,6 +65,7 @@ namespace Berserk_Statistics_MVC.Controllers
             if (ModelState.IsValid)
             {
                 tournament.Owner = _users.CurrentUser;
+                tournament.Date = DateTime.Now;
                 _tournaments.InsertOrUpdate(tournament);
                 _tournaments.Save();
 

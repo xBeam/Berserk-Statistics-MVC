@@ -196,7 +196,6 @@
     <Compile Include="Infrastructure\TournamentRepository.cs" />
     <Compile Include="Infrastructure\UserRepository.cs" />
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Infrastructure\DatabaseContext.cs" />
     <Compile Include="Models\DbInitializer.cs" />
     <Compile Include="Models\Tournament.cs" />
     <Compile Include="Models\Member.cs" />

@@ -3,9 +3,9 @@ using Berserk_Statistics_MVC.Infrastructure;
 
 namespace Berserk_Statistics_MVC.Models
 {
-    public class DbInitializer : DropCreateDatabaseAlways<DatabaseContext>
+    public class DbInitializer : DropCreateDatabaseAlways<DalContext>
     {
-        protected override void Seed(DatabaseContext context)
+        protected override void Seed(DalContext context)
         {
             base.Seed(context);
         }

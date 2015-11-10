@@ -23,13 +23,6 @@
             @Html.EditorFor(model => model.TournamentName)
             @Html.ValidationMessageFor(model => model.TournamentName)
         </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Rounds, "Количество раундов")
-        </div>
-        <div class="editor-field">
-            <input type="text" value="3" />
-            @Html.ValidationMessageFor(model => model.Rounds)
-        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Date, "Дата турнира")
@@ -42,13 +35,13 @@
         @Html.HiddenFor(model => model.Date)
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Сохранить" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Вернуться к списку", "Index")
 </div>
 
 @section Scripts {

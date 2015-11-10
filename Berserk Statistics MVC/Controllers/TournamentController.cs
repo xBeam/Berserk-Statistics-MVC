@@ -13,7 +13,6 @@ namespace Berserk_Statistics_MVC.Controllers
     [InitializeSimpleMembership]
     public class TournamentController : Controller
     {
-        private DatabaseContext db = new DatabaseContext();
         private ITournamentRepository _tournaments;
         private IUserProfileRepository _users;
 
@@ -25,21 +24,21 @@ namespace Berserk_Statistics_MVC.Controllers
             _tournaments = context.Tournaments;
         }
 
-        //
         // GET: /Tournament/
-
         public ActionResult Index()
         {
-            var tournaments = db.Tournaments.Include(c => c.Owner);
-            return View(tournaments);
+            return View(_tournaments);
         }
 
-        //
         // GET: /Tournament/Details/5
-
-        public ActionResult Details(int id = 0)
+        public ActionResult Details(int? id)
         {
-            Tournament tournament = db.Tournaments.Find(id);
+            if (!id.HasValue)
+            {
+                throw new ArgumentNullException();
+            }
+
+            Tournament tournament = _tournaments.All.FirstOrDefault(c => c.TournamentId == id);
             if (tournament == null)
             {
                 return HttpNotFound();
@@ -47,18 +46,13 @@ namespace Berserk_Statistics_MVC.Controllers
             return View(tournament);
         }
 
-        //
         // GET: /Tournament/Create
-
         public ActionResult Create()
         {
-            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "UserName");
             return View();
         }
 
-        //
         // POST: /Tournament/Create
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Tournament tournament)
@@ -75,27 +69,35 @@ namespace Berserk_Statistics_MVC.Controllers
             return View(tournament);
         }
 
-        public ActionResult Members(int id = 0)
+        public ActionResult Members(int? id)
         {
-            //Tournament tournament = db.Tournaments.Find(id);
-            //if (tournament == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (!id.HasValue)
+            {
+                throw new ArgumentNullException();
+            }
+
+            Tournament tournament = _tournaments.All.FirstOrDefault(c => c.TournamentId == id);
+
+            if (tournament == null)
+            {
+                return HttpNotFound();
+            }
+
             return View();
         }
 
-        //
         // GET: /Tournament/Edit/5
-
-        public ActionResult Edit(int id = 0)
+        public ActionResult Edit(int? id)
         {
+            if (!id.HasValue)
+            {
+                throw new ArgumentNullException();
+            }
+
             return View(_tournaments.All.FirstOrDefault(c => c.TournamentId == id));
         }
 
-        //
         // POST: /Tournament/Edit/5
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Tournament tournament)
@@ -105,20 +107,22 @@ namespace Berserk_Statistics_MVC.Controllers
                 _tournaments.InsertOrUpdate(tournament);
                 _tournaments.Save();
             }
+
             return RedirectToAction("Index");
         }
 
-        //
         // GET: /Tournament/Delete/5
-
-        public ActionResult Delete(int id = 0)
+        public ActionResult Delete(int? id)
         {
+            if (!id.HasValue)
+            {
+                throw new ArgumentNullException();
+            }
+
             return View(_tournaments.All.FirstOrDefault(c => c.TournamentId == id));
         }
 
-        //
         // POST: /Tournament/Delete/5
-
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -126,12 +130,6 @@ namespace Berserk_Statistics_MVC.Controllers
             _tournaments.Remove(_tournaments.All.FirstOrDefault((c=>c.TournamentId == id)));
             _tournaments.Save();
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
         }
     }
 }

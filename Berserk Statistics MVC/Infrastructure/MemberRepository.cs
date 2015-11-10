@@ -6,38 +6,31 @@ namespace Berserk_Statistics_MVC.Infrastructure
 {
     public class MemberRepository : IMemberRepository
     {
-        private DatabaseContext _context;
+        private DalContext _context;
 
-        public MemberRepository(DatabaseContext context)
+        public MemberRepository(DalContext context)
         {
             _context = context;
         }
 
         IQueryable<Member> IMemberRepository.All
         {
-            get { return _context.Members; }
+            get { return _context.Members.All; }
         }
 
         void IMemberRepository.InsertOrUpdate(Member member)
         {
-            if (member.MemberId == default(int))
-            {
-                _context.Members.Add(member);
-            }
-            else
-            {
-                _context.Entry(member).State = System.Data.EntityState.Modified;
-            }
+            _context.Members.InsertOrUpdate(member);
         }
 
         void IMemberRepository.Remove(Member member)
         {
-            _context.Entry(member).State = System.Data.EntityState.Deleted;
+            _context.Members.Remove(member);
         }
 
         void IMemberRepository.Save()
         {
-            _context.SaveChanges();
+            _context.Members.Save();
         }
     }
 }

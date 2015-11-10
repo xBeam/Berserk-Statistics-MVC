@@ -33,7 +33,7 @@
                 <td>@Html.DisplayFor(modelItem => member.MemberName)</td>
                 <td>Дек-лист</td>
                 <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Edit", "Member", new { id = member.MemberId })" aria-controls="memberlist" data-dt-idx="1">Edit</a></td>
-                <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Delete", "Member", new { id = member.MemberId })" aria-controls="memberlist" data-dt-idx="1">Delete</a></td>
+                <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Delete", "Member", new { id = member.MemberId })" aria-controls="memberlist" data-dt-idx="1" id="deleteUrl">Delete</a></td>
             </tr>
         }
     </tbody>
@@ -44,6 +44,31 @@
     <script>
         $(document).ready(function () {
             $('#memberlist').DataTable();
+        });
+
+        $(document).ready(function () {
+            $(deleteUrl).click(function () {
+                var tournamentId = $('#memberlist td: a:[id="deleteUrl"]');
+                var conf = confirm("Вы уверены, что хотите удалить участника?");
+
+                if (conf) {
+                    $.ajax({
+                        url: "/Tournament/Delete",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: 'application/json; charset=utf-8',
+                        cache: false,
+                        data: '{ id:' + tournamentId + '}',
+                        success: function (data) {
+                            window.location.reload();
+                        },
+                        error: function (xhr) {
+                            alert('error');
+                        }
+                    });
+                }
+                return false;
+            });
         });
     </script>
 }

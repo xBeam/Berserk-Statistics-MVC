@@ -5,9 +5,9 @@ namespace Berserk_Statistics_MVC.Infrastructure
 {
     public class TournamentRepository : ITournamentRepository
     {
-        private DatabaseContext _context;
+        private DalContext _context;
 
-        public TournamentRepository(DatabaseContext context)
+        public TournamentRepository(DalContext context)
         {
             _context = context;
         }

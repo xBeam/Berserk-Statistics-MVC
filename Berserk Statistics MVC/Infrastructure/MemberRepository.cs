@@ -6,9 +6,9 @@ namespace Berserk_Statistics_MVC.Infrastructure
 {
     public class MemberRepository : IMemberRepository
     {
-        private DatabaseContext _context;
+        private DalContext _context;
 
-        public MemberRepository(DatabaseContext context)
+        public MemberRepository(DalContext context)
         {
             _context = context;
         }

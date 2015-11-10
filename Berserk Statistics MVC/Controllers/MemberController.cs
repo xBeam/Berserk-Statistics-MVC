@@ -32,15 +32,6 @@ namespace Berserk_Statistics_MVC.Controllers
         }
 
         //
-        // GET: /Member/
-        public ActionResult GetTournamentMember()
-        {
-           // var members = db.Members.Include(r => r.Owner);
-            //return View(db.Members.ToList());
-            return null as ActionResult;
-        }
-
-        //
         // GET: /Member/Details/5
 
         public ActionResult Details(int id = 0)

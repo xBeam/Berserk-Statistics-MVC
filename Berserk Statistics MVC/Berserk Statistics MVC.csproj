@@ -192,6 +192,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\DalContext.cs" />
+    <Compile Include="Infrastructure\DatabaseContext.cs" />
     <Compile Include="Infrastructure\MemberRepository.cs" />
     <Compile Include="Infrastructure\TournamentRepository.cs" />
     <Compile Include="Infrastructure\UserRepository.cs" />

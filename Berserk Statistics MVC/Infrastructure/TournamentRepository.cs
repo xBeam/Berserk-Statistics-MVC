@@ -5,31 +5,38 @@ namespace Berserk_Statistics_MVC.Infrastructure
 {
     public class TournamentRepository : ITournamentRepository
     {
-        private DalContext _context;
+        private DatabaseContext _context;
 
-        public TournamentRepository(DalContext context)
+        public TournamentRepository(DatabaseContext context)
         {
             _context = context;
         }
 
         IQueryable<Tournament> ITournamentRepository.All
         {
-            get { return _context.Tournaments.All; }
+            get { return _context.Tournaments; }
         }
 
         void ITournamentRepository.InsertOrUpdate(Tournament tournament)
         {
-            _context.Tournaments.InsertOrUpdate(tournament);
+            if (tournament.TournamentId == default(int))
+            {
+                _context.Tournaments.Add(tournament);
+            }
+            else
+            {
+                _context.Entry(tournament).State = System.Data.EntityState.Modified;
+            }
         }
 
         void ITournamentRepository.Remove(Tournament tournament)
         {
-            _context.Tournaments.Remove(tournament);
+            _context.Entry(tournament).State = System.Data.EntityState.Deleted;
         }
 
         void ITournamentRepository.Save()
         {
-            _context.Tournaments.Save();
+            _context.SaveChanges();
         }
     }
 }

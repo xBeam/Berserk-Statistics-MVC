@@ -74,8 +74,8 @@ namespace Berserk_Statistics_MVC.Controllers
             {
                 db.Members.Add(member);
                 db.SaveChanges();
-                return View("~/Views/Rating/Create.cshtml");
                 return RedirectToAction("Index");
+                return View("~/Views/Rating/Create.cshtml");
             }
 
             return View(member);

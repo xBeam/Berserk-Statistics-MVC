@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Подробно</h2>
 
 <fieldset>
     <legend>Member</legend>
@@ -16,14 +16,8 @@
         @Html.DisplayFor(model => model.MemberName)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.DeckList)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.DeckList)
-    </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.MemberId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Редактировать", "Edit", new { id=Model.MemberId }) |
+    @Html.ActionLink("Вернуться к списку", "Index")
 </p>

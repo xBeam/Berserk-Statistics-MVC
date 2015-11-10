@@ -42,8 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Card.cs" />
-    <Compile Include="ICardRepositorycs.cs" />
     <Compile Include="IDALContext.cs" />
     <Compile Include="IMemberRepository.cs" />
     <Compile Include="IRatingRepository.cs" />

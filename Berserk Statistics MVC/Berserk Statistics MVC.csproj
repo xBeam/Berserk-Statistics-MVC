@@ -184,7 +184,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\RoundController.cs" />
@@ -193,13 +192,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\CardRepository.cs" />
     <Compile Include="Infrastructure\DalContext.cs" />
     <Compile Include="Infrastructure\MemberRepository.cs" />
     <Compile Include="Infrastructure\TournamentRepository.cs" />
     <Compile Include="Infrastructure\UserRepository.cs" />
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\Card.cs" />
     <Compile Include="Infrastructure\DatabaseContext.cs" />
     <Compile Include="Models\DbInitializer.cs" />
     <Compile Include="Models\Round.cs" />
@@ -347,11 +344,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Card\Index.cshtml" />
-    <Content Include="Views\Card\Details.cshtml" />
-    <Content Include="Views\Card\Create.cshtml" />
-    <Content Include="Views\Card\Edit.cshtml" />
-    <Content Include="Views\Card\Delete.cshtml" />
     <Content Include="Views\Tournament\Index.cshtml" />
     <Content Include="Views\Tournament\Details.cshtml" />
     <Content Include="Views\Tournament\Create.cshtml" />
@@ -367,7 +359,6 @@
     <Content Include="Views\Round\Create.cshtml" />
     <Content Include="Views\Round\Edit.cshtml" />
     <Content Include="Views\Round\Delete.cshtml" />
-    <Content Include="Views\Card\PostIndex.cshtml" />
     <Content Include="Views\Tournament\Members.cshtml" />
   </ItemGroup>
   <ItemGroup>

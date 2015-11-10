@@ -35,6 +35,14 @@
             @Html.ValidationMessageFor(model => model.Rounds)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date, "Дата турнира")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
         <p>
             <input type="submit" value="Create" />
         </p>

@@ -4,7 +4,8 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Создать участника</h2>
+<p></p>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -14,29 +15,21 @@
         <legend>Member</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.MemberName)
+            @Html.LabelFor(model => model.MemberName, "Имя")
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.MemberName)
             @Html.ValidationMessageFor(model => model.MemberName)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DeckList)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DeckList)
-            @Html.ValidationMessageFor(model => model.DeckList)
-        </div>
-
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Создать" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Вернуться к списку", "Index")
 </div>
 
 @section Scripts {

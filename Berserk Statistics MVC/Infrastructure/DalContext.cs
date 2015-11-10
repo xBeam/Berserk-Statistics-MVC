@@ -7,7 +7,6 @@ namespace Berserk_Statistics_MVC.Infrastructure
         DatabaseContext _database;
         private IUserProfileRepository _users;
         private ITournamentRepository _tournaments;
-        private ICardRepository _cards;
         private IMemberRepository _members;
 
         public DalContext()
@@ -36,18 +35,6 @@ namespace Berserk_Statistics_MVC.Infrastructure
                     _tournaments = new TournamentRepository(_database);
                 }
                 return _tournaments;
-            }
-        }
-
-        public ICardRepository Cards
-        {
-            get
-            {
-                if (_cards == null)
-                {
-                    _cards = new CardRepository(_database);
-                }
-                return _cards;
             }
         }
 

@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "Members";
-    //var grid = new WebGrid(source: Model, rowsPerPage: 20);    
 }
 
 <h2>Создание турнира</h2>
@@ -13,19 +12,8 @@
     @Html.ActionLink("Стыковые матчи", "Create", "Round")
 </p>
 
-@*@grid.GetHtml(tableStyle: "grid",
-              headerStyle: "header",
-              rowStyle: "row",
-              alternatingRowStyle: "alt-row",
-              footerStyle: "footer",
-              htmlAttributes: new { id = "grid", cellpadding = "6px", cellspacing = "0px", },
-              columns: grid.Columns(
-                //grid.Column(columnName: "MemberId", header: "Участник")
-              )
-           )*@
-
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Вернуться к списку", "Index")
 </div>
 
 @section Scripts {

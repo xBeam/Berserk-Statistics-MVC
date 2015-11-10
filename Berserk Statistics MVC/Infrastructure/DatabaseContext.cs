@@ -13,8 +13,6 @@ namespace Berserk_Statistics_MVC.Infrastructure
 
         public DbSet<Tournament> Tournaments { get; set; }
 
-        public DbSet<Card> Cards { get; set; }
-
         public DbSet<UserProfile> UserProfiles { get; set; }
         
         public DbSet<Member> Members { get; set; }

@@ -30,7 +30,8 @@ namespace Berserk_Statistics_MVC.Controllers
 
         public ActionResult Index()
         {
-            return View(_users.CurrentUser.Tournaments.ToList());
+            var tournaments = db.Tournaments.Include(c => c.Owner);
+            return View(tournaments);
         }
 
         //
@@ -65,7 +66,6 @@ namespace Berserk_Statistics_MVC.Controllers
             if (ModelState.IsValid)
             {
                 tournament.Owner = _users.CurrentUser;
-                tournament.Date = DateTime.Now;
                 _tournaments.InsertOrUpdate(tournament);
                 _tournaments.Save();
 
@@ -105,7 +105,7 @@ namespace Berserk_Statistics_MVC.Controllers
                 _tournaments.InsertOrUpdate(tournament);
                 _tournaments.Save();
             }
-            return View(tournament);
+            return RedirectToAction("Index");
         }
 
         //

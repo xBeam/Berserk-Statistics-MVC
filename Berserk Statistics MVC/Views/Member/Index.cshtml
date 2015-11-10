@@ -4,90 +4,46 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Участники рейтинга</h2>
+<h2>Участники турниров</h2>
 
-<p>
-    @Html.ActionLink("Добавить", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MemberName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DeckList)
-        </th>
-        <th></th>
-    </tr>
+@section styles
+{
+    <link href="~/Content/GridStyles.css" rel="stylesheet" />
+    @Styles.Render("~/Content/themes/base/css")
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MemberName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DeckList)
-        </td>
-        <td>
-            @Html.ActionLink("Редактировать", "Edit", new { id=item.MemberId }) |
-            @Html.ActionLink("Удалить", "Delete", new { id=item.MemberId })
-        </td>
-    </tr>
 }
 
+<p>
+    <a class="btn btn-default" href="@Url.Action("Create", "Member")" aria-controls="example" data-dt-idx="1">Добавить участника</a>
+</p>
+
+<table id="memberlist" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Дек-лист</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var member in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => member.MemberName)</td>
+                <td>Дек-лист</td>
+                <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Edit", "Member", new { id = member.MemberId })" aria-controls="memberlist" data-dt-idx="1">Edit</a></td>
+                <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Delete", "Member", new { id = member.MemberId })" aria-controls="memberlist" data-dt-idx="1">Delete</a></td>
+            </tr>
+        }
+    </tbody>
 </table>
 
-<!-- DataTables CSS -->
-<link rel="stylesheet" type="text/css" href="/DataTables-1.10.9/media/css/jquery.dataTables.css">
-
-<!-- jQuery -->
-<script type="text/javascript" charset="utf8" src="/DataTables-1.10.9/media/js/jquery.js"></script>
-
-<!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="/DataTables-1.10.9/media/js/jquery.dataTables.js"></script>
-
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
-</head>
-<body>
-    <table id="example">
-        <thead>
-            <tr><th>Веб-сайты</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Pixel.com</td></tr>
-            <tr><td>Новый путь</td></tr>
-            <tr><td>Портал UA</td></tr>
-        </tbody>
-    </table>
-    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+@section scripts
+{
     <script>
-        $(function () {
-            $("#example").dataTable({
-                "bServerSide": true,
-                "sAjaxSource": "http://demo.pixelcom.crimea.ua/javascript/data-tables/data_source.json",
-                "aoColumns": [{
-                    "mData": "name",
-                    "sTitle": "Название сайта"
-                }, {
-                    "mData": "url",
-                    "mRender": function (url, type, full) {
-                        return '<a href="' + url + '">' + url + '</a>';
-                    }
-                }, {
-                    "mData": "editor.name"
-                }, {
-                    "mData": "editor.phone"
-                }, {
-                    "mData": "editor",
-                    "mRender": function (data) {
-                        return data.email.join("<br>");
-                    }
-                }]
-            });
-        })
+        $(document).ready(function () {
+            $('#memberlist').DataTable();
+        });
     </script>
-</body>
-</html>
+}

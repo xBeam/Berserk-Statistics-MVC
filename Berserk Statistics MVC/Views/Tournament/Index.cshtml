@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "Турниры";
-    var grid = new WebGrid(source: Model, rowsPerPage: 20);
 }
 
 <h2>Турниры</h2>
@@ -15,25 +14,19 @@
 }
 
 <p>
-    @Html.ActionLink("Добавить новый", "Create")
+    <a class="btn btn-default" href="@Url.Action("Create", "Tournament")" aria-controls="example" data-dt-idx="1">Добавить новый</a>
 </p>
 
-<table id="example" class="display" cellspacing="0" width="100%">
+<table id="tournamentlist" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Creation Date</th>
+            <th>Имя</th>
+            <th>Дата</th>
+            <th>Количество раундов</th>
+            <th></th>
             <th></th>
         </tr>
     </thead>
-
-    <tfoot>
-        <tr>
-            <th>Name</th>
-            <th>Creation Date</th>
-            <th></th>
-        </tr>
-    </tfoot>
 
     <tbody>
         @foreach (var tournament in Model)
@@ -41,18 +34,19 @@
             <tr>
                 <td>@tournament.TournamentName</td>
                 <td>@tournament.Date</td>
-                <td><a class="btn btn-info btn-sm active" href="@Url.Action("Edit", "Tournament", new { id = tournament.TournamentId })" aria-controls="example" data-dt-idx="1">Edit</a></td>
+                <td>3</td>
+                <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Edit", "Tournament", new { id = tournament.TournamentId })" aria-controls="tournamentlist" data-dt-idx="1">Edit</a></td>
+                <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Delete", "Tournament", new { id = tournament.TournamentId })" aria-controls="tournamentlist" data-dt-idx="1">Delete</a></td>
             </tr>
         }
     </tbody>
 </table>
 
-
 @section scripts
 {
     <script>
         $(document).ready(function () {
-            $('#example').DataTable();
+            $('#tournamentlist').DataTable();
         });
     </script>
 }

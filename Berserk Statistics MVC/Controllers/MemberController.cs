@@ -26,7 +26,7 @@ namespace Berserk_Statistics_MVC.Controllers
         // GET: /Member/
         public ActionResult Index()
         {
-            return View(_members);
+            return View(_members.All.ToList());
         }
 
         // GET: /Member/Details/5

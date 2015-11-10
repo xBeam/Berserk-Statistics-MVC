@@ -27,7 +27,7 @@ namespace Berserk_Statistics_MVC.Controllers
         // GET: /Tournament/
         public ActionResult Index()
         {
-            return View(_tournaments);
+            return View(_tournaments.All.ToList());
         }
 
         // GET: /Tournament/Details/5

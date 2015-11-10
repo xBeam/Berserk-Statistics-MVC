@@ -186,7 +186,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
-    <Compile Include="Controllers\RoundController.cs" />
     <Compile Include="Controllers\TournamentController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -199,7 +198,6 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Infrastructure\DatabaseContext.cs" />
     <Compile Include="Models\DbInitializer.cs" />
-    <Compile Include="Models\Round.cs" />
     <Compile Include="Models\Tournament.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -354,11 +352,6 @@
     <Content Include="Views\Member\Create.cshtml" />
     <Content Include="Views\Member\Edit.cshtml" />
     <Content Include="Views\Member\Delete.cshtml" />
-    <Content Include="Views\Round\Index.cshtml" />
-    <Content Include="Views\Round\Details.cshtml" />
-    <Content Include="Views\Round\Create.cshtml" />
-    <Content Include="Views\Round\Edit.cshtml" />
-    <Content Include="Views\Round\Delete.cshtml" />
     <Content Include="Views\Tournament\Members.cshtml" />
   </ItemGroup>
   <ItemGroup>

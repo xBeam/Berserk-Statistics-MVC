@@ -28,14 +28,6 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Rounds, "Количество раундов")
-        </div>
-        <div class="editor-field">
-            <input type="text" value="3" />
-            @Html.ValidationMessageFor(model => model.Rounds)
-        </div>
-
-        <div class="editor-label">
             @Html.LabelFor(model => model.Date, "Дата турнира")
         </div>
         <div class="editor-field">
@@ -44,13 +36,13 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Создать" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Вернуться к списку", "Index")
 </div>
 
 @section Scripts {

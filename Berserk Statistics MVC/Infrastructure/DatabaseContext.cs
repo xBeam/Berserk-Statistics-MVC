@@ -17,8 +17,6 @@ namespace Berserk_Statistics_MVC.Infrastructure
         
         public DbSet<Member> Members { get; set; }
         
-        public DbSet<Round> Rounds { get; set; }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();

@@ -6,6 +6,5 @@ namespace Statistics.Domain
     {
         public int MemberId { get; set; }
         public string MemberName { get; set; }
-        public ICollection<Round> Rounds { get; set; }
     }
 }

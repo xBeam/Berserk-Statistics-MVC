@@ -33,7 +33,7 @@
         {
             <tr>
                 <td>@tournament.TournamentName</td>
-                <td>@tournament.Date</td>
+                <td>@tournament.Date.Date</td>
                 <td>3</td>
                 <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Edit", "Tournament", new { id = tournament.TournamentId })" aria-controls="tournamentlist" data-dt-idx="1">Edit</a></td>
                 <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Delete", "Tournament", new { id = tournament.TournamentId })" aria-controls="tournamentlist" data-dt-idx="1">Delete</a></td>

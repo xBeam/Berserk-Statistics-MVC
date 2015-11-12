@@ -26,7 +26,7 @@ namespace Berserk_Statistics_MVC.Controllers
         // GET: /Member/
         public ActionResult Index()
         {
-            return View(_members.All.ToList());
+            return View(_members.All.Where(c => c.Owner.UserId == _users.CurrentUser.UserId).ToList());
         }
 
         // GET: /Member/Details/5
@@ -58,6 +58,7 @@ namespace Berserk_Statistics_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                member.Owner = _users.CurrentUser;
                 _members.InsertOrUpdate(member);
                 _members.Save();
                 return RedirectToAction("Index");

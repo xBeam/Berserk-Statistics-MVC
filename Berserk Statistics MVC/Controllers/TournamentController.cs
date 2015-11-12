@@ -27,7 +27,7 @@ namespace Berserk_Statistics_MVC.Controllers
         // GET: /Tournament/
         public ActionResult Index()
         {
-            return View(_tournaments.All.ToList());
+            return View(_tournaments.All.Where(c=>c.Owner.UserId == _users.CurrentUser.UserId).ToList());
         }
 
         // GET: /Tournament/Details/5

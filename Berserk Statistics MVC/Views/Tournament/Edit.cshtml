@@ -49,24 +49,12 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    @*<script src="~/Scripts/globalize/globalize.js"></script>*@
-    @*<script src="~/Scripts/globalize/cultures/globalize.culture.en-GB.js"></script>*@
+   
     <script>
         $(function () {
-            $("#Date").datepicker({ dateFormat: 'dd/mm/yy'});
+            $("#Date").datepicker({ dateFormat: 'dd.mm.yy'});
         });
 
-        //$(document).ready(function () {
-        //    $.culture = Globalize.culture("ua-Ua");
-        //    $.validator.methods.date = function (value, element) {
-        //        //This is not ideal but Chrome passes dates through in ISO1901 format regardless of locale 
-        //        //and despite displaying in the specified format.
-
-        //        return this.optional(element)
-        //            || Globalize.parseDate(value, "dd/MM/yyyy", "en-GB")
-        //            || Globalize.parseDate(value, "yyyy-mm-dd");
-        //    }
-        //});
     </script>
 
 }

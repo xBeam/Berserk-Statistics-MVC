@@ -33,7 +33,7 @@
         {
             <tr>
                 <td>@tournament.TournamentName</td>
-                <td>@tournament.Date.Date</td>
+                <td>@tournament.Date</td>
                 <td>3</td>
                 <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Edit", "Tournament", new { id = tournament.TournamentId })" aria-controls="tournamentlist" data-dt-idx="1">Edit</a></td>
                 <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Delete", "Tournament", new { id = tournament.TournamentId })" aria-controls="tournamentlist" data-dt-idx="1">Delete</a></td>
@@ -44,9 +44,19 @@
 
 @section scripts
 {
+    @Scripts.Render("~/Scripts/dataTables.select.min.js")
+    @Scripts.Render("~/Scripts/dataTables.editor.min.js")
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src="//cdn.datatables.net/plug-ins/1.10.10/sorting/date-eu.js"></script>
+    
+       
     <script>
         $(document).ready(function () {
-            $('#tournamentlist').DataTable();
+            $('#tournamentlist').DataTable({
+                columnDefs: [
+                  { type: 'date-eu', targets: 0 }
+                ]
+            });
         });
     </script>
 }

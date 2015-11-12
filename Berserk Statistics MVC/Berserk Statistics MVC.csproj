@@ -198,8 +198,6 @@
     <Compile Include="Infrastructure\UserRepository.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\DbInitializer.cs" />
-    <Compile Include="Models\Tournament.cs" />
-    <Compile Include="Models\Member.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -287,8 +285,11 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\ChangeCardView\ChangeCardView.js" />
+    <Content Include="Scripts\dataTables.editor.min.js" />
     <Content Include="Scripts\dataTables.jqueryui.js" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\dataTables.select.min.js" />
+    <Content Include="Scripts\jquery-1.11.3.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
@@ -296,6 +297,7 @@
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
     <Content Include="Scripts\jquery.dataTables.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -353,6 +355,7 @@
     <Content Include="Views\Member\Edit.cshtml" />
     <Content Include="Views\Member\Delete.cshtml" />
     <Content Include="Views\Tournament\Members.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

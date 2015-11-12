@@ -99,7 +99,7 @@ namespace Berserk_Statistics_MVC.Controllers
 
         // POST: /Tournament/Edit/5
         [HttpPost]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(Tournament tournament)
         {
             if (ModelState.IsValid)

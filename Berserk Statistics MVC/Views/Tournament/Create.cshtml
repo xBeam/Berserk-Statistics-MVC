@@ -40,6 +40,11 @@
 
     </fieldset>
 }
+<select class="js-example-basic-multiple" multiple="multiple">
+    <option value="AL">Alabama</option>
+    <option value="KA">Kansas</option>
+    <option value="WY">Wyoming</option>
+</select>
 
 <div>
     @Html.ActionLink("Вернуться к списку", "Index")
@@ -48,6 +53,11 @@
 @section Scripts {
     @*@Scripts.Render("~/bundles/jqueryval")*@
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Scripts/jquery.select2.js")
+    @Styles.Render("~/Scripts/select2.min.js")
+    @Styles.Render("~/Scripts/select2.full.min.js")
+    @Styles.Render("~/Scripts/select2.full.js")
+    @Styles.Render("~/Scripts/select2.js")
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -57,9 +67,9 @@
             $("#Date").datepicker({ dateFormat: 'dd.mm.yy' });
         });
     </script>
-
+    <script class="js-code-multiple">
+        $(document).ready(function () {
+            $(".js-example-basic-multiple").select2();
+        });
+    </script>
     }
-  
-
-
-

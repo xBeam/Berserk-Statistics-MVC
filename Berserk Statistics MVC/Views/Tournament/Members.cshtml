@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Statistics.Domain.Tournament>
+﻿@model Statistics.Domain.Tournament
 
 @{
     ViewBag.Title = "Members";
@@ -31,10 +31,10 @@
     </thead>
 
     <tbody>
-        @foreach (var member in Model.FirstOrDefault().Members)
+       @foreach (var member in Model.Members)
         {
             <tr>
-                <td>tournament.Member</td>
+                <td>member.</td>
                 <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("RemoveMember", "Tournament", new { id = member.MemberId })" aria-controls="memberslist" data-dt-idx="1">Delete</a></td>
             </tr>
         }

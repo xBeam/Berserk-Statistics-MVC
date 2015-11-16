@@ -9,6 +9,7 @@ namespace Statistics.Domain
         public int TournamentId { get; set; }
         public string TournamentName { get; set; }
         public UserProfile Owner { get; set; }
+        public ICollection<Member> Member { get; set; }
         public DateTime Date { get; set; }
     }
 }

@@ -69,20 +69,18 @@ namespace Berserk_Statistics_MVC.Controllers
             return View(tournament);
         }
 
-        public ActionResult Members(int? id)
+        public ActionResult Members()
         {
-            if (!id.HasValue)
-            {
-                throw new ArgumentNullException();
-            }
+            return View();
+        }
 
-            Tournament tournament = _tournaments.All.FirstOrDefault(c => c.TournamentId == id);
+        public ActionResult AddMember()
+        {
+            return View();
+        }
 
-            if (tournament == null)
-            {
-                return HttpNotFound();
-            }
-
+        public ActionResult RemoveMember()
+        {
             return View();
         }
 

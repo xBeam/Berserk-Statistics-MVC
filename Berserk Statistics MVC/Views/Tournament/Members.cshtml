@@ -31,13 +31,13 @@
     </thead>
 
     <tbody>
-        @*@foreach (var tournament in Model)
+        @foreach (var member in Model.FirstOrDefault().Members)
         {
             <tr>
                 <td>tournament.Member</td>
-                <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("RemoveMember", "Tournament", new { id = tournament.Member })" aria-controls="memberslist" data-dt-idx="1">Delete</a></td>
+                <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("RemoveMember", "Tournament", new { id = member.MemberId })" aria-controls="memberslist" data-dt-idx="1">Delete</a></td>
             </tr>
-        }*@
+        }
     </tbody>
 </table>
 

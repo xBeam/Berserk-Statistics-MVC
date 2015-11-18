@@ -15,6 +15,7 @@ namespace Berserk_Statistics_MVC.Controllers
     {
         private ITournamentRepository _tournaments;
         private IUserProfileRepository _users;
+        private IMemberRepository _members;
 
          public TournamentController() : this(new DalContext()) { }
 
@@ -22,6 +23,7 @@ namespace Berserk_Statistics_MVC.Controllers
         {
             _users = context.Users;
             _tournaments = context.Tournaments;
+            _members = context.Members;
         }
 
         // GET: /Tournament/
@@ -49,6 +51,7 @@ namespace Berserk_Statistics_MVC.Controllers
         // GET: /Tournament/Create
         public ActionResult Create()
         {
+            ViewBag.Members = _members.All.Where(c=>c.Owner.UserId == _users.CurrentUser.UserId).ToList();
             return View();
         }
 
@@ -59,6 +62,7 @@ namespace Berserk_Statistics_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                //tournament.Members.
                 tournament.Owner = _users.CurrentUser;
                 _tournaments.InsertOrUpdate(tournament);
                 _tournaments.Save();

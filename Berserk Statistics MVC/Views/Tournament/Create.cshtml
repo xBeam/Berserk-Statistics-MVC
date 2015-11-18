@@ -1,7 +1,10 @@
-﻿@model Statistics.Domain.Tournament
+﻿@using Statistics.Domain
+@using System.Web
+@model Statistics.Domain.Tournament
 
 @{
     ViewBag.Title = "Create";
+    var members = ViewBag.Members;
 }
 
 <h2>Создание турнира</h2>
@@ -12,7 +15,8 @@
     @Html.ActionLink("Стыковые матчи", "Create", "Round")
 </p>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm(@*"Create", "Tournament",
+                       new { clubid = @ViewBag.Club.id }, FormMethod.Post, null*@)) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -33,18 +37,24 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.Date)
         </div>
-
+        <div>
+            <label>Добавить участников</label>
+            <select class="selected_members" multiple="multiple" style="width: 950px">
+                @if (members != null)
+                {
+                    foreach (var member in members)
+                    {
+                        <option value="@member.MemberId">@member.MemberName</option>
+                    }
+                }
+            </select>
+        </div>
         <p>
             <input type="submit" value="Создать" />
         </p>
 
     </fieldset>
 }
-<select class="js-example-basic-multiple" multiple="multiple">
-    <option value="AL">Alabama</option>
-    <option value="KA">Kansas</option>
-    <option value="WY">Wyoming</option>
-</select>
 
 <div>
     @Html.ActionLink("Вернуться к списку", "Index")
@@ -53,19 +63,21 @@
 @section Scripts {
     @*@Scripts.Render("~/bundles/jqueryval")*@
     @Styles.Render("~/Content/css")
-    <link href="select2/css/select2.min.css" rel="stylesheet" />
-    <script src="select2/js/select2.min.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    @Scripts.Render("//code.jquery.com/jquery-1.10.2.js")
+    @Styles.Render("~/Scripts/select2/css/select2.min.css")
+    @Scripts.Render("~/Scripts/select2/js/select2.min.js")
+    @Styles.Render("//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
+    @Scripts.Render("//code.jquery.com/ui/1.11.4/jquery-ui.js")
+
     <script>
         $(function () {
             $("#Date").datepicker({ dateFormat: 'dd.mm.yy' });
         });
     </script>
+
     <script class="js-code-multiple">
         $(document).ready(function () {
-            $(".js-example-basic-multiple").select2();
+            $(".selected_members").select2();
         });
     </script>
     }

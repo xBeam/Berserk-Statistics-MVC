@@ -32,7 +32,7 @@
         @foreach (var tournament in Model)
         {
             <tr>
-                <td>@tournament.TournamentName</td>
+                <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Details", "Tournament", new { id = tournament.TournamentId })" aria-controls="tournamentlist" data-dt-idx="1">@tournament.TournamentName</a></td>
                 <td>@tournament.Date</td>
                 <td>3</td>
                 <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Edit", "Tournament", new { id = tournament.TournamentId })" aria-controls="tournamentlist" data-dt-idx="1">Edit</a></td>

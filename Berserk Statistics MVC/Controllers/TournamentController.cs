@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -58,11 +59,20 @@ namespace Berserk_Statistics_MVC.Controllers
         // POST: /Tournament/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Tournament tournament)
+        public ActionResult Create(Tournament tournament, List<string> listKey)
         {
             if (ModelState.IsValid)
             {
-                //tournament.Members.
+                if (listKey != null && listKey.Any())
+                {
+                    foreach (var key in listKey)
+                    {
+                        var member = _members.All.FirstOrDefault(c => c.MemberName == key);
+                        if (member != null)
+                            tournament.Members.Add(member);
+                    }
+                }
+               
                 tournament.Owner = _users.CurrentUser;
                 _tournaments.InsertOrUpdate(tournament);
                 _tournaments.Save();

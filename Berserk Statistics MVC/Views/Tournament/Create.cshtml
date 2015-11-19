@@ -1,6 +1,4 @@
-﻿@using Statistics.Domain
-@using System.Web
-@model Statistics.Domain.Tournament
+﻿@model Statistics.Domain.Tournament
 
 @{
     ViewBag.Title = "Create";
@@ -9,14 +7,7 @@
 
 <h2>Создание турнира</h2>
 
-<p>
-    @Html.ActionLink("Параметры", "Create", "Tournament")
-    @Html.ActionLink("Участники", "Members", "Tournament")
-    @Html.ActionLink("Стыковые матчи", "Create", "Round")
-</p>
-
-@using (Html.BeginForm(@*"Create", "Tournament",
-                       new { clubid = @ViewBag.Club.id }, FormMethod.Post, null*@)) {
+@using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -50,7 +41,7 @@
             </select>
         </div>
         <p>
-            <input type="submit" value="Создать" />
+            <input class="create" type="submit" value="Создать" />
         </p>
 
     </fieldset>
@@ -70,14 +61,47 @@
     @Scripts.Render("//code.jquery.com/ui/1.11.4/jquery-ui.js")
 
     <script>
-        $(function () {
+        $(function() {
             $("#Date").datepicker({ dateFormat: 'dd.mm.yy' });
         });
     </script>
 
     <script class="js-code-multiple">
-        $(document).ready(function () {
+        $(document).ready(function() {
             $(".selected_members").select2();
         });
     </script>
-    }
+    
+    <script>
+        var members = Array();
+        var postData = {};
+        $('.create').click(function() {
+            $('.select2-selection__rendered').each(function() {
+                $(this).find('li').each(function() {
+
+                    if ($(this)[0].className == "select2-selection__choice") {
+                        members = members.concat($(this).children().context.title);
+                    }
+                    postData.listKey = members;
+                });
+            });
+            //до этого места все работает
+            alert(members);
+            //а тут надо вызвать сабмит так, чтобы передат коллекцию мемберов и поля турнира
+            $.ajax({
+                url: '@Url.Action("Create", "Tournament")',
+                traditional: true,
+                data: postData,
+                dataType: "html",
+                type: 'POST',
+                success: function(data) {
+                    alert("success");
+                },
+                error: function() {
+                    alert("fail");
+                }
+            });
+        });
+    </script>
+}
+

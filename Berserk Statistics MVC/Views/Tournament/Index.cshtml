@@ -66,7 +66,7 @@
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
                     cache: false,
-                    data: '{ id:' + tournamentId + '}',
+                    data: JSON.stringify({ id: tournamentId }),
                     success: function (data) {
                         window.location.reload();
                     },

@@ -83,33 +83,31 @@
         var members = Array();
         var postData = {};
         var tournament = {};
-        
+
         $('#create').click(function() {
             $('.select2-selection__rendered').each(function() {
                 $(this).find('li').each(function() {
 
-                    if ($(this)[0].className == "select2-selection__choice") {
-                        members = members.concat($(this).children().context.title);
-                    }
-                    postData.listKey = members;
+                    postData.Members = $(".selected_members").select2().val().map(function(item) {
+                        return { MemberId: item };
+                    })
                 });
             });
 
-            tournament.name = $('#TournamentName')[0].value;
-            tournament.date = $('#Date')[0].value;
-            postData.tournament = tournament;
+            postData.TournamentName = $('#TournamentName')[0].value;
+            postData.Date = $('#Date')[0].value;
             alert(members);
-            
+
             $.ajax({
                 url: "/Tournament/Create",
-                traditional: true,
-                data: postData,
-                dataType: "html",
+                data: JSON.stringify(postData),
+                contentType: 'application/json',
+                dataType: "json",
                 type: 'POST',
                 success: function(data) {
                     alert("success");
                 },
-                error: function() {
+                error: function(err, data) {
                     alert("error");
                 }
             });

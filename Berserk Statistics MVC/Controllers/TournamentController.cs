@@ -58,28 +58,13 @@ namespace Berserk_Statistics_MVC.Controllers
 
         // POST: /Tournament/Create
         [HttpPost]
-        public ActionResult Create(Tournament tournament, List<string> listKey, Object postData)
+        public ActionResult Create(Tournament tournament)
         {
-            if (ModelState.IsValid)
-            {
-                if (listKey != null && listKey.Any())
-                {
-                    foreach (var key in listKey)
-                    {
-                        var member = _members.All.FirstOrDefault(c => c.MemberName == key);
-                        if (member != null)
-                        {
-                            //tournament.Members.Add(member);
-                        }
-                    }
-                }
-               
                 tournament.Owner = _users.CurrentUser;
                 _tournaments.InsertOrUpdate(tournament);
                 _tournaments.Save();
 
                 return RedirectToAction("Index");
-            }
 
             return View(tournament);
         }

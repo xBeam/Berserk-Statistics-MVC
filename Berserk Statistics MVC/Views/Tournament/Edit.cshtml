@@ -45,11 +45,10 @@
 @section Scripts {
     @*@Scripts.Render("~/bundles/jqueryval")*@
     @Styles.Render("~/Content/css")
+    @Styles.Render("//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
+    @Scripts.Render("//code.jquery.com/jquery-1.10.2.js")
+    @Scripts.Render("//code.jquery.com/ui/1.11.4/jquery-ui.js")
 
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-   
     <script>
         $(function () {
             $("#Date").datepicker({ dateFormat: 'dd.mm.yy' });
@@ -58,3 +57,4 @@
     </script>
 
 }
+

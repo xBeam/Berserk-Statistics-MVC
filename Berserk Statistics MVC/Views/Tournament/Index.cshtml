@@ -36,7 +36,7 @@
                 <td>@tournament.Date</td>
                 <td>3</td>
                 <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Edit", "Tournament", new { id = tournament.TournamentId })" aria-controls="tournamentlist" data-dt-idx="1">Edit</a></td>
-                <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Delete", "Tournament", new { id = tournament.TournamentId })" aria-controls="tournamentlist" data-dt-idx="1">Delete</a></td>
+                <td><a class="btn btn-default btn-sm btn-block" aria-controls="tournamentlist" onclick="deleteTournament(@tournament.TournamentId)" data-dt-idx="1">Delete</a></td>
             </tr>
         }
     </tbody>
@@ -56,6 +56,28 @@
                 ]
             });
         });
+
+        //турнир удаляется, но выскакивает alert "error"
+        function deleteTournament (tournamentId) {
+            if (confirm("Вы уверены, что хотите удалить турнир?")) {
+                $.ajax({
+                    url: "/Tournament/Delete",
+                    dataType: "json",
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    cache: false,
+                    data: '{ id:' + tournamentId + '}',
+                    success: function (data) {
+                        window.location.reload();
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                        window.location.reload();
+                    }
+                });
+            }
+            return false;
+        };
     </script>
 }
 

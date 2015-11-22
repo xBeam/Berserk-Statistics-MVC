@@ -58,8 +58,7 @@ namespace Berserk_Statistics_MVC.Controllers
 
         // POST: /Tournament/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Tournament tournament, List<string> listKey)
+        public ActionResult Create(Tournament tournament, List<string> listKey, Object postData)
         {
             if (ModelState.IsValid)
             {
@@ -69,7 +68,9 @@ namespace Berserk_Statistics_MVC.Controllers
                     {
                         var member = _members.All.FirstOrDefault(c => c.MemberName == key);
                         if (member != null)
-                            tournament.Members.Add(member);
+                        {
+                            //tournament.Members.Add(member);
+                        }
                     }
                 }
                
@@ -136,9 +137,13 @@ namespace Berserk_Statistics_MVC.Controllers
 
         // POST: /Tournament/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int? id)
         {
+            if (!id.HasValue)
+            {
+                throw new ArgumentNullException();
+            }
+
             _tournaments.Remove(_tournaments.All.FirstOrDefault((c=>c.TournamentId == id)));
             _tournaments.Save();
             return RedirectToAction("Index");

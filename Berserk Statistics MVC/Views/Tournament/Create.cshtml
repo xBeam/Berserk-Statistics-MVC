@@ -7,6 +7,14 @@
 
 <h2>Создание турнира</h2>
 
+@section styles
+{
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
+    @Styles.Render("~/Scripts/select2/css/select2.min.css")
+    @Styles.Render("//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
+}
+
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -40,8 +48,9 @@
                 }
             </select>
         </div>
+        <p></p>
         <p>
-            <input class="create" type="submit" value="Создать" />
+            <a class="btn btn-default btn-sm" data-dt-idx="1" id="create">Создать</a>
         </p>
 
     </fieldset>
@@ -53,11 +62,9 @@
 
 @section Scripts {
     @*@Scripts.Render("~/bundles/jqueryval")*@
-    @Styles.Render("~/Content/css")
+   
     @Scripts.Render("//code.jquery.com/jquery-1.10.2.js")
-    @Styles.Render("~/Scripts/select2/css/select2.min.css")
     @Scripts.Render("~/Scripts/select2/js/select2.min.js")
-    @Styles.Render("//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
     @Scripts.Render("//code.jquery.com/ui/1.11.4/jquery-ui.js")
 
     <script>
@@ -75,7 +82,9 @@
     <script>
         var members = Array();
         var postData = {};
-        $('.create').click(function() {
+        var tournament = {};
+        
+        $('#create').click(function() {
             $('.select2-selection__rendered').each(function() {
                 $(this).find('li').each(function() {
 
@@ -85,11 +94,14 @@
                     postData.listKey = members;
                 });
             });
-            //до этого места все работает
+
+            tournament.name = $('#TournamentName')[0].value;
+            tournament.date = $('#Date')[0].value;
+            postData.tournament = tournament;
             alert(members);
-            //а тут надо вызвать сабмит так, чтобы передат коллекцию мемберов и поля турнира
+            
             $.ajax({
-                url: '@Url.Action("Create", "Tournament")',
+                url: "/Tournament/Create",
                 traditional: true,
                 data: postData,
                 dataType: "html",
@@ -98,7 +110,7 @@
                     alert("success");
                 },
                 error: function() {
-                    alert("fail");
+                    alert("error");
                 }
             });
         });

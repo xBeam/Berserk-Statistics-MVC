@@ -6,6 +6,13 @@
 
 <h2>Редактирование турнира</h2>
 <p></p>
+@section styles
+{
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
+    @Styles.Render("~/Scripts/select2/css/select2.min.css")
+    @Styles.Render("//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
+}
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -31,21 +38,17 @@
             @Html.EditorFor(model => model.Date)
             @Html.ValidationMessageFor(model => model.Date)
         </div>
-
+        <p></p>
         <p>
-            <input type="submit" value="Сохранить" />
+            <input class="btn btn-default btn-sm" type="submit" value="Сохранить" />
+            <a class="btn btn-default btn-sm" href="@Url.Action("Index", "Tournament")">Вернуться к списку</a>
         </p>
     </fieldset>
 }
 
-<div>
-    @Html.ActionLink("Вернуться к списку", "Index")
-</div>
 
 @section Scripts {
     @*@Scripts.Render("~/bundles/jqueryval")*@
-    @Styles.Render("~/Content/css")
-    @Styles.Render("//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
     @Scripts.Render("//code.jquery.com/jquery-1.10.2.js")
     @Scripts.Render("//code.jquery.com/ui/1.11.4/jquery-ui.js")
 

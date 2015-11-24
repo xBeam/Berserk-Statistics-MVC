@@ -4,8 +4,15 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Создать участника</h2>
+<h2>Создание участника</h2>
 <p></p>
+@section styles
+{
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
+    @Styles.Render("~/Scripts/select2/css/select2.min.css")
+    @Styles.Render("//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
+}
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -21,17 +28,23 @@
             @Html.EditorFor(model => model.MemberName)
             @Html.ValidationMessageFor(model => model.MemberName)
         </div>
-
+        <p></p>
         <p>
-            <input type="submit" value="Создать" />
+            <input class="btn btn-default btn-sm" type="submit" value="Создать" />
+            <a class="btn btn-default btn-sm" href="@Url.Action("Index", "Member")">Вернуться к списку</a>
         </p>
     </fieldset>
 }
 
-<div>
-    @Html.ActionLink("Вернуться к списку", "Index")
-</div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        window.onload = function () {
+            var alertText = '@ViewBag.Alert';
+
+            if (alertText != '') {
+                alert(alertText);
+            }
+        }
+    </script>
 }

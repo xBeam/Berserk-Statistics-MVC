@@ -12,7 +12,7 @@
 }
 
 <p>
-    <a class="btn btn-default" href="@Url.Action("Create", "Tournament")" aria-controls="example" data-dt-idx="1">Добавить новый</a>
+    <a class="btn btn-default" href="@Url.Action("Create", "Tournament")">Добавить новый</a>
 </p>
 
 <table id="tournamentlist" class="display" cellspacing="0" width="100%">
@@ -30,11 +30,11 @@
         @foreach (var tournament in Model)
         {
             <tr>
-                <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Details", "Tournament", new { id = tournament.TournamentId })" aria-controls="tournamentlist" data-dt-idx="1">@tournament.TournamentName</a></td>
+                <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Details", "Tournament", new { id = tournament.TournamentId })">@tournament.TournamentName</a></td>
                 <td>@tournament.Date</td>
                 <td>3</td>
-                <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Edit", "Tournament", new { id = tournament.TournamentId })" aria-controls="tournamentlist" data-dt-idx="1">Edit</a></td>
-                <td><a class="btn btn-default btn-sm btn-block" aria-controls="tournamentlist" onclick="deleteTournament(@tournament.TournamentId)" data-dt-idx="1">Delete</a></td>
+                <td><a class="btn btn-default btn-sm btn-block" href="@Url.Action("Edit", "Tournament", new { id = tournament.TournamentId })">Править</a></td>
+                <td><a class="btn btn-default btn-sm btn-block" onclick="deleteTournament(@tournament.TournamentId)">Удалить</a></td>
             </tr>
         }
     </tbody>
@@ -71,9 +71,7 @@
                         window.location.reload();
                     }
                 });
-                return false;
             }
-            return false;
         };
     </script>
 }

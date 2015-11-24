@@ -58,6 +58,14 @@ namespace Berserk_Statistics_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                var allMembers = _members.All.Where(c => c.Owner.UserId != null);
+
+                if (Enumerable.Any(allMembers, memb => memb.MemberName == member.MemberName))
+                {
+                    ViewBag.Alert = "Участник с таким именем уже существует!";
+                    return View(member);
+                }
+
                 member.Owner = _users.CurrentUser;
                 _members.InsertOrUpdate(member);
                 _members.Save();
@@ -115,11 +123,14 @@ namespace Berserk_Statistics_MVC.Controllers
 
         // POST: /Member/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int? id)
         {
-            Member member = _members.All.FirstOrDefault(m => m.MemberId == id);
-            _members.Remove(member);
+            if (!id.HasValue)
+            {
+                throw new ArgumentNullException();
+            }
+
+            _members.Remove(_members.All.FirstOrDefault((c => c.MemberId == id)));
             _members.Save();
             return RedirectToAction("Index");
         }

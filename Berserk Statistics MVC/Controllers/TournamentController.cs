@@ -46,7 +46,9 @@ namespace Berserk_Statistics_MVC.Controllers
             {
                 return HttpNotFound();
             }
+
             ViewBag.Members = _members.All.Where(c => c.Owner.UserId == _users.CurrentUser.UserId).ToList();
+
             return View(tournament);
         }
 
@@ -70,9 +72,7 @@ namespace Berserk_Statistics_MVC.Controllers
             _tournaments.InsertOrUpdate(tournament);
             _tournaments.Save();
 
-            return RedirectToAction("Index");
-
-            return View(tournament);
+            return RedirectToAction("Index", "Tournament");
         }
 
         public ActionResult Members()
@@ -112,7 +112,7 @@ namespace Berserk_Statistics_MVC.Controllers
                 _tournaments.Save();
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Tournament");
         }
 
         // GET: /Tournament/Delete/5

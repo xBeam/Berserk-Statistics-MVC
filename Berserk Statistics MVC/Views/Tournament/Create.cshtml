@@ -51,14 +51,11 @@
         <p></p>
         <p>
             <a class="btn btn-default btn-sm" data-dt-idx="1" id="create">Создать</a>
+            <a class="btn btn-default btn-sm" href="@Url.Action("Index", "Tournament")">Вернуться к списку</a>
         </p>
 
     </fieldset>
 }
-
-<div>
-    @Html.ActionLink("Вернуться к списку", "Index")
-</div>
 
 @section Scripts {
     @*@Scripts.Render("~/bundles/jqueryval")*@
@@ -105,11 +102,12 @@
                 type: 'POST',
                 success: function(data) {
                     alert("success");
+                    window.location.reload();
                 },
-                error: function(err, data) {
+                error: function (err, data) {
+                    window.location.reload();
                 }
             });
-            return false;
         });
     </script>
 }

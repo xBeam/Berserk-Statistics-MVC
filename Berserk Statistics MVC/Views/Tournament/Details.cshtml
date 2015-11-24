@@ -2,10 +2,16 @@
 
 @{
     ViewBag.Title = "Details";
-    var tournament = ViewBag.Tournament;
+    var members = ViewBag.Members;
 }
 
-<h2>Подробно</h2>
+@section styles
+{
+    @Styles.Render("~/Content/themes/base/css")
+}
+
+<h2>Турнир: Подробно</h2>
+<p></p>
 
 <fieldset>
     <legend>Tournament</legend>
@@ -17,14 +23,17 @@
         @Html.DisplayFor(model => model.TournamentName)
     </div>
 
+    <p></p>
+
     <div class="display-label">
         @Html.LabelFor(model => model.Date, "Дата турнира")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Date)
     </div>
+    <p></p>
 
-    <table id="memberlist" class="display" cellspacing="0" width="100%">
+    <table id="memberslist" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th>№</th>
@@ -35,25 +44,42 @@
 
         <tbody>
             @{
-                const int rowNo = 1;
+                int rowNumber = 1;
             }
 
-            @if (tournament.Members != null)
+            @if (members != null)
             {
-                foreach (var member in tournament.Members)
-                 {
-                     <tr>
-                         <td>@rowNo++;</td>
-                         <td>@member.MemberName</td>
-                         <td>3</td>
-                     </tr>
-                 }
+                foreach (var member in members)
+                {
+                    <tr>
+                        <td>@rowNumber++</td>
+                        <td>@member.MemberName</td>
+                        <td>3</td>
+                    </tr>
+                }
             }
         </tbody>
     </table>
 
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.TournamentId }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a class="btn btn-default btn-sm" href="@Url.Action("Edit", "Tournament", new { id = Model.TournamentId })">Редактировать</a>
+    <a class="btn btn-default btn-sm" href="@Url.Action("Index", "Tournament")">Вернуться к списку</a>
 </p>
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/dataTables.select.min.js")
+    @Scripts.Render("~/Scripts/dataTables.editor.min.js")
+    @Scripts.Render("~/Scripts/dataTables.sorting.date-eu.js")
+
+    <script>
+        $(document).ready(function() {
+            $('#memberslist').DataTable({
+                columnDefs: [
+                    { type: 'date-eu', targets: 0 }
+                ]
+            });
+        });
+        </script>
+}

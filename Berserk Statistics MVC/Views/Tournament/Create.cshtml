@@ -89,14 +89,13 @@
                 $(this).find('li').each(function() {
 
                     postData.Members = $(".selected_members").select2().val().map(function(item) {
-                        return { MemberId: item };
+                        return { MemberId: item};
                     })
                 });
             });
 
             postData.TournamentName = $('#TournamentName')[0].value;
             postData.Date = $('#Date')[0].value;
-            alert(members);
 
             $.ajax({
                 url: "/Tournament/Create",
@@ -108,9 +107,9 @@
                     alert("success");
                 },
                 error: function(err, data) {
-                    alert("error");
                 }
             });
+            return false;
         });
     </script>
 }

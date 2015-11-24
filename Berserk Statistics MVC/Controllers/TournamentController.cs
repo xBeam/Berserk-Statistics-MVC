@@ -46,6 +46,7 @@ namespace Berserk_Statistics_MVC.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Members = _members.All.Where(c => c.Owner.UserId == _users.CurrentUser.UserId).ToList();
             return View(tournament);
         }
 
@@ -60,11 +61,16 @@ namespace Berserk_Statistics_MVC.Controllers
         [HttpPost]
         public ActionResult Create(Tournament tournament)
         {
-                tournament.Owner = _users.CurrentUser;
-                _tournaments.InsertOrUpdate(tournament);
-                _tournaments.Save();
+            foreach (var member in tournament.Members)
+            {
+                member.MemberName = _members.All.FirstOrDefault(c => c.MemberId == member.MemberId).MemberName;
+            }
 
-                return RedirectToAction("Index");
+            tournament.Owner = _users.CurrentUser;
+            _tournaments.InsertOrUpdate(tournament);
+            _tournaments.Save();
+
+            return RedirectToAction("Index");
 
             return View(tournament);
         }

@@ -2,26 +2,55 @@
 
 @{
     ViewBag.Title = "Details";
+    var tournament = ViewBag.Tournament;
 }
 
-<h2>Details</h2>
+<h2>Подробно</h2>
 
 <fieldset>
     <legend>Tournament</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.TournamentName)
+        @Html.LabelFor(model => model.TournamentName, "Название турнира")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.TournamentName)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Owner.UserName)
+        @Html.LabelFor(model => model.Date, "Дата турнира")
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Owner.UserName)
+        @Html.DisplayFor(model => model.Date)
     </div>
+
+    <table id="memberlist" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Имя</th>
+                <th>Количество очков</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @{
+                const int rowNo = 1;
+            }
+
+            @if (tournament.Members != null)
+            {
+                foreach (var member in tournament.Members)
+                 {
+                     <tr>
+                         <td>@rowNo++;</td>
+                         <td>@member.MemberName</td>
+                         <td>3</td>
+                     </tr>
+                 }
+            }
+        </tbody>
+    </table>
 
 </fieldset>
 <p>

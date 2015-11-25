@@ -6,6 +6,11 @@
 
 <h2>Редактирование участника</h2>
 <p></p>
+@section styles
+{
+    @Styles.Render("~/Content/themes/base/css")
+}
+
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -23,15 +28,13 @@
             @Html.ValidationMessageFor(model => model.MemberName)
         </div>
 
+        <p></p>
         <p>
-            <input type="submit" value="Сохранить" />
+            <input class="btn btn-default btn-sm" type="submit" value="Сохранить" />
+            <a class="btn btn-default btn-sm" href="@Url.Action("Index", "Member")">Вернуться к списку</a>
         </p>
     </fieldset>
 }
-
-<div>
-    @Html.ActionLink("Вернуться к списку", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

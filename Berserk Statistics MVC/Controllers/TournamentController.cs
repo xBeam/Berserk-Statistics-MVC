@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Berserk_Statistics_MVC.Filters;
 using Berserk_Statistics_MVC.Infrastructure;
+using Microsoft.Ajax.Utilities;
 using Statistics.Domain;
 
 namespace Berserk_Statistics_MVC.Controllers
@@ -47,7 +48,8 @@ namespace Berserk_Statistics_MVC.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.Members = _members.All.Where(c => c.Owner.UserId == _users.CurrentUser.UserId).ToList();
+            ViewBag.Members =
+                _members.All.Where(m => m.Tournaments.FirstOrDefault().TournamentId == tournament.TournamentId);
 
             return View(tournament);
         }

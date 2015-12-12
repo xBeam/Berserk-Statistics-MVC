@@ -20,16 +20,15 @@
         @Html.LabelFor(model => model.TournamentName, "Название турнира")
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.TournamentName)
+        @Html.TextBoxFor(model => model.TournamentName, new { @readonly = "readonly" })
     </div>
-
     <p></p>
 
     <div class="display-label">
         @Html.LabelFor(model => model.Date, "Дата турнира")
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Date)
+        @Html.EditorFor(model => model.Date)
     </div>
     <p></p>
 

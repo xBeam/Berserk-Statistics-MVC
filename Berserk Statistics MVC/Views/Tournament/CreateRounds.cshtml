@@ -1,0 +1,120 @@
+﻿@model IEnumerable<Statistics.Domain.Round>
+<ul class="nav nav-tabs" role="tablist">
+    @foreach (Statistics.Domain.Round round in Model)
+    {
+        <li class="">
+            <a href="#tab-table" data-toggle="tab">@round.RoundName</a>
+        </li>
+    }
+</ul>
+
+@foreach (Statistics.Domain.Round round in Model)
+{
+    foreach (var table in round.Tables)
+    {
+        <tr>
+            <td><img src="http://www.berserk.ru/old/gwt_tournaments/img/win_gray_32.png" class="gwt-Image"></td>
+            <td>@Html.DropDownList("Members")</td>
+            <td><div class="gwt-Label"> VS </div></td>
+            <td><img src="http://www.berserk.ru/old/gwt_tournaments/img/win_gray_32.png" class="gwt-Image"></td>
+            <td>@Html.DropDownList("Members")</td>
+        </tr>
+    }
+}
+
+
+
+<tbody>
+    <tr>
+        <td>
+            <table cellspacing="5" cellpadding="0" class="GES1STEDEI">
+                <tbody>
+                    <tr>
+                        <td align="left" style="vertical-align: top;">
+                            <div class="GES1STEDMJ">
+                                <table width="100%" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td class="GES1STEDKJ">
+                                                <div>&nbsp;</div>
+                                            </td>
+                                            <td class="GES1STEDCJ">
+                                                <table class="GES1STEDDJ" cellspacing="3">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="32">
+                                                                <img src="http://www.berserk.ru/old/gwt_tournaments/img/win_gray_32.png" class="gwt-Image">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                            <td class="GES1STEDLJ">
+                                                <div>&nbsp;</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td align="left" style="vertical-align: middle;">
+                            <table cellspacing="0" cellpadding="0" class="GES1STEDAK GES1STEDPJ GES1STEDKK" style="width: 200px;">
+                                <tbody>
+                                    <tr>
+                                        <td align="left" style="vertical-align: middle;">
+                                            <input type="text" class="GES1STEDCK" style="width: 100%; padding-left: 3px;">
+                                        </td>
+                                        <td align="left" width="25px" style="vertical-align: middle;">
+                                            <img onload="this.__gwtLastUnhandledEvent=&quot;load&quot;;" src="http://www.berserk.ru/old/gwt_tournaments/clear.cache.gif" style="width:24px;height:23px;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAXCAYAAAARIY8tAAABUklEQVR42t2WzY6CQBCEeVOfFQV/EBABgRAgaMLBp8BUJWXI7My6e3A38fBdYKaq6enuwRuGYRZ1XZM8z8npdCJJkpDj8UiiKCKHw4Hsdjuy3W7JZrMh0zTNHoTv9zvBAzCOI5Fx13WkbVvSNA1RQJfLhZzPZ6KAYP5+AyyQ8O12I33fE5dgWZakKAoiYVtKPeTajFjCEjQjNYVc0AALlQKhiKuqsiKBOI6/5UMMsFA5d+VeuITVH1YDNIwEzGpZrVY/Qgam0f8ZCNT2b8W/GKDbXIcJAzSUSzzLMqvBcma93wBTUK3/iqXwEpswgLYXhuFzlmgUmJizxyUs9vs9wej21uv1nKYpkZGQoIkMNJN0qLb74UMMtEAbZLAUAaaweZXKQFdnEASz5/v+89S1QQL6MvFKWJGjcADu5b8x0CfhpUoMaKNYlp8NpATor+J6vc4PGJ0yKIvYnPMAAAAASUVORK5CYII=) no-repeat 0px 0px;" border="0" class="GES1STEDOJ">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                        <td align="left" style="vertical-align: middle;">
+                            <div class="gwt-Label"> VS </div>
+                        </td>
+                        <td align="left" style="vertical-align: top;">
+                            <div class="GES1STEDMJ">
+                                <table width="100%" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td class="GES1STEDKJ">
+                                                <div>&nbsp;</div>
+                                            </td>
+                                            <td class="GES1STEDCJ">
+                                                <table class="GES1STEDDJ" cellspacing="3">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="32">
+                                                                <img src="http://www.berserk.ru/old/gwt_tournaments/img/win_gray_32.png" class="gwt-Image">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                            <td class="GES1STEDLJ">
+                                                <div>&nbsp;</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td align="left" style="vertical-align: middle;">
+                            <table cellspacing="0" cellpadding="0" class="GES1STEDAK GES1STEDPJ GES1STEDKK" style="width: 200px;">
+                                <tbody>
+                                    <tr>
+                                        <td align="left" style="vertical-align: middle;">
+                                            <input type="text" class="GES1STEDCK" style="width: 100%; padding-left: 3px;">
+                                        </td><td align="left" width="25px" style="vertical-align: middle;"><img onload="this.__gwtLastUnhandledEvent=&quot;load&quot;;" src="http://www.berserk.ru/old/gwt_tournaments/clear.cache.gif" style="width:24px;height:23px;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAXCAYAAAARIY8tAAABUklEQVR42t2WzY6CQBCEeVOfFQV/EBABgRAgaMLBp8BUJWXI7My6e3A38fBdYKaq6enuwRuGYRZ1XZM8z8npdCJJkpDj8UiiKCKHw4Hsdjuy3W7JZrMh0zTNHoTv9zvBAzCOI5Fx13WkbVvSNA1RQJfLhZzPZ6KAYP5+AyyQ8O12I33fE5dgWZakKAoiYVtKPeTajFjCEjQjNYVc0AALlQKhiKuqsiKBOI6/5UMMsFA5d+VeuITVH1YDNIwEzGpZrVY/Qgam0f8ZCNT2b8W/GKDbXIcJAzSUSzzLMqvBcma93wBTUK3/iqXwEpswgLYXhuFzlmgUmJizxyUs9vs9wej21uv1nKYpkZGQoIkMNJN0qLb74UMMtEAbZLAUAaaweZXKQFdnEASz5/v+89S1QQL6MvFKWJGjcADu5b8x0CfhpUoMaKNYlp8NpATor+J6vc4PGJ0yKIvYnPMAAAAASUVORK5CYII=) no-repeat 0px 0px;" border="0" class="GES1STEDOJ"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr><tr><td><table cellspacing="5" cellpadding="0" class="GES1STEDEI"><tbody><tr><td align="left" style="vertical-align: top;"><div class="GES1STEDMJ"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td class="GES1STEDKJ"><div>&nbsp;</div></td><td class="GES1STEDCJ"><table class="GES1STEDDJ" cellspacing="3"><tbody><tr><td width="32"><img src="http://www.berserk.ru/old/gwt_tournaments/img/win_gray_32.png" class="gwt-Image"></td></tr></tbody></table></td><td class="GES1STEDLJ"><div>&nbsp;</div></td></tr></tbody></table></div></td><td align="left" style="vertical-align: middle;"><table cellspacing="0" cellpadding="0" class="GES1STEDAK GES1STEDPJ GES1STEDKK" style="width: 200px;"><tbody><tr><td align="left" style="vertical-align: middle;"><input type="text" class="GES1STEDCK" style="width: 100%; padding-left: 3px;"></td><td align="left" width="25px" style="vertical-align: middle;"><img onload="this.__gwtLastUnhandledEvent=&quot;load&quot;;" src="http://www.berserk.ru/old/gwt_tournaments/clear.cache.gif" style="width:24px;height:23px;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAXCAYAAAARIY8tAAABUklEQVR42t2WzY6CQBCEeVOfFQV/EBABgRAgaMLBp8BUJWXI7My6e3A38fBdYKaq6enuwRuGYRZ1XZM8z8npdCJJkpDj8UiiKCKHw4Hsdjuy3W7JZrMh0zTNHoTv9zvBAzCOI5Fx13WkbVvSNA1RQJfLhZzPZ6KAYP5+AyyQ8O12I33fE5dgWZakKAoiYVtKPeTajFjCEjQjNYVc0AALlQKhiKuqsiKBOI6/5UMMsFA5d+VeuITVH1YDNIwEzGpZrVY/Qgam0f8ZCNT2b8W/GKDbXIcJAzSUSzzLMqvBcma93wBTUK3/iqXwEpswgLYXhuFzlmgUmJizxyUs9vs9wej21uv1nKYpkZGQoIkMNJN0qLb74UMMtEAbZLAUAaaweZXKQFdnEASz5/v+89S1QQL6MvFKWJGjcADu5b8x0CfhpUoMaKNYlp8NpATor+J6vc4PGJ0yKIvYnPMAAAAASUVORK5CYII=) no-repeat 0px 0px;" border="0" class="GES1STEDOJ"></td></tr></tbody></table></td><td align="left" style="vertical-align: middle;"><div class="gwt-Label"> VS </div></td><td align="left" style="vertical-align: top;"><div class="GES1STEDMJ"><table width="100%" cellspacing="0" cellpadding="0"><tbody><tr><td class="GES1STEDKJ"><div>&nbsp;</div></td><td class="GES1STEDCJ"><table class="GES1STEDDJ" cellspacing="3"><tbody><tr><td width="32"><img src="http://www.berserk.ru/old/gwt_tournaments/img/win_gray_32.png" class="gwt-Image"></td></tr></tbody></table></td><td class="GES1STEDLJ"><div>&nbsp;</div></td></tr></tbody></table></div></td><td align="left" style="vertical-align: middle;"><table cellspacing="0" cellpadding="0" class="GES1STEDAK GES1STEDPJ GES1STEDKK" style="width: 200px;"><tbody><tr><td align="left" style="vertical-align: middle;"><input type="text" class="GES1STEDCK" style="width: 100%; padding-left: 3px;"></td><td align="left" width="25px" style="vertical-align: middle;"><img onload="this.__gwtLastUnhandledEvent=&quot;load&quot;;" src="http://www.berserk.ru/old/gwt_tournaments/clear.cache.gif" style="width:24px;height:23px;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAXCAYAAAARIY8tAAABUklEQVR42t2WzY6CQBCEeVOfFQV/EBABgRAgaMLBp8BUJWXI7My6e3A38fBdYKaq6enuwRuGYRZ1XZM8z8npdCJJkpDj8UiiKCKHw4Hsdjuy3W7JZrMh0zTNHoTv9zvBAzCOI5Fx13WkbVvSNA1RQJfLhZzPZ6KAYP5+AyyQ8O12I33fE5dgWZakKAoiYVtKPeTajFjCEjQjNYVc0AALlQKhiKuqsiKBOI6/5UMMsFA5d+VeuITVH1YDNIwEzGpZrVY/Qgam0f8ZCNT2b8W/GKDbXIcJAzSUSzzLMqvBcma93wBTUK3/iqXwEpswgLYXhuFzlmgUmJizxyUs9vs9wej21uv1nKYpkZGQoIkMNJN0qLb74UMMtEAbZLAUAaaweZXKQFdnEASz5/v+89S1QQL6MvFKWJGjcADu5b8x0CfhpUoMaKNYlp8NpATor+J6vc4PGJ0yKIvYnPMAAAAASUVORK5CYII=) no-repeat 0px 0px;" border="0" class="GES1STEDOJ"></td></tr></tbody></table></td></tr></tbody></table></td></tr>
+</tbody>

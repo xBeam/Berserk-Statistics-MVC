@@ -3,6 +3,11 @@
 @{
     ViewBag.Title = "Create";
     var members = ViewBag.Members;
+    AjaxOptions ajaxOptions = new AjaxOptions
+    {
+        UpdateTargetId = "rounds",
+        Url = Url.Action("CreateRounds")
+    };
 }
 
 <h2>Создание турнира</h2>
@@ -13,7 +18,8 @@
     @Styles.Render("~/Scripts/select2/css/select2.min.css")
 }
 
-@using (Html.BeginForm()) {
+@using (Ajax.BeginForm(ajaxOptions))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -34,6 +40,7 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.Date)
         </div>
+
         <div>
             <label>Добавить участников</label>
             <select class="selected_members" multiple="multiple" style="width: 950px">
@@ -46,6 +53,17 @@
                 }
             </select>
         </div>
+
+        <label>Количество раундов</label>
+        <div class="editor-field">
+            @Html.TextBox("roundsNumber")
+            <a class="btn btn-default btn-sm" href="@Url.Action("Create", "Round")">Добавить</a>
+        </div>
+
+        <div class="rounds" id="rounds">
+            
+        </div>
+
         <p></p>
         <p>
             <a class="btn btn-default btn-sm" data-dt-idx="1" id="create">Создать</a>
@@ -104,6 +122,22 @@
                     window.location.reload();
                 }
             });
+        });
+
+        $(document).ready(function () {
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
+            });
+
+            $('table.table').DataTable({
+                ajax: '../ajax/data/arrays.txt',
+                scrollY: 200,
+                scrollCollapse: true,
+                paging: false
+            });
+
+            // Apply a search to the second table for the demo
+            $('#myTable2').DataTable().search('New York').draw();
         });
     </script>
 }

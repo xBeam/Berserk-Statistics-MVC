@@ -21,5 +21,7 @@ namespace Berserk_Statistics_MVC.Infrastructure
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
+
+        public DbSet<Round> Rounds { get; set; }
     }
 }

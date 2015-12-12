@@ -18,14 +18,17 @@ namespace Berserk_Statistics_MVC.Controllers
         private ITournamentRepository _tournaments;
         private IUserProfileRepository _users;
         private IMemberRepository _members;
+        private IRoundRepository _rounds; 
+        private ITableRepository _tables;
 
-         public TournamentController() : this(new DalContext()) { }
+        public TournamentController() : this(new DalContext()) { }
 
          private TournamentController(IDalContext context)
         {
             _users = context.Users;
             _tournaments = context.Tournaments;
             _members = context.Members;
+            _rounds = context.Rounds;
         }
 
         // GET: /Tournament/
@@ -77,19 +80,26 @@ namespace Berserk_Statistics_MVC.Controllers
             return RedirectToAction("Index", "Tournament");
         }
 
-        public ActionResult Members()
+        public void CreateRounds(Tournament tournament, int count)
         {
-            return View();
-        }
+            for (int i = 0; i < count; i++)
+            {
+                var round = new Round{Tournament = tournament};
+                _rounds.InsertOrUpdate(round);
+                _rounds.Save();
 
-        public ActionResult AddMember()
-        {
-            return View();
-        }
+                //Высчитывается количество столов в раунде, исходя из общего количества участников, учитывая четность/нечетность
+                var tablesCount = tournament.Members.Count() % 2 == 0 ? tournament.Members.Count() / 2 : tournament.Members.Count() / 2 + 1;
 
-        public ActionResult RemoveMember()
-        {
-            return View();
+                for (int z = 0; z < tablesCount; z++)
+                {
+                    var table = new Table { Round = round };
+                    _tables.InsertOrUpdate(table);
+                    _tables.Save();
+                }
+            }
+            var rounds = _rounds.All.Where(c => c.Tournament.TournamentId == tournament.TournamentId);
+            return PartialView(rounds);
         }
 
         // GET: /Tournament/Edit/5

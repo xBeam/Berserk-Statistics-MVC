@@ -5,5 +5,7 @@
         IUserProfileRepository Users { get; }
         ITournamentRepository Tournaments { get; }
         IMemberRepository Members { get; }
+        IRoundRepository Rounds { get; }
+        ITableRepository Tables { get; }
     }
 }

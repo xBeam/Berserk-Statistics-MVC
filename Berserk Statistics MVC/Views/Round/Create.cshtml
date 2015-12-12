@@ -1,0 +1,36 @@
+﻿@model Statistics.Domain.Round
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Round</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RoundName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RoundName)
+            @Html.ValidationMessageFor(model => model.RoundName)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

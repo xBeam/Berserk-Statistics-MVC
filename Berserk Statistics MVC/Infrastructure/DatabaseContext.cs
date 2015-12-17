@@ -23,5 +23,6 @@ namespace Berserk_Statistics_MVC.Infrastructure
         }
 
         public DbSet<Round> Rounds { get; set; }
+        public DbSet<Table> Tables { get; set; }
     }
 }

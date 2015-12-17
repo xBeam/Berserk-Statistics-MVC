@@ -25,48 +25,62 @@
 
     <fieldset>
         <legend>Tournament</legend>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#options" aria-controls="options" role="tab" data-toggle="tab">Параметры</a></li>
+            <li role="presentation"><a href="#rounds" aria-controls="rounds" role="tab" data-toggle="tab" id="rounds">Раунды</a></li>
+        </ul>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.TournamentName, "Название турнира")
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.TournamentName)
-            @Html.ValidationMessageFor(model => model.TournamentName)
-        </div>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="options">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.TournamentName, "Название турнира")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.TournamentName)
+                    @Html.ValidationMessageFor(model => model.TournamentName)
+                </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Date, "Дата турнира")
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Date)
-        </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Date, "Дата турнира")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Date)
+                </div>
 
-        <div>
-            <label>Добавить участников</label>
-            <select class="selected_members" multiple="multiple" style="width: 950px">
-                @if (members != null)
-                {
-                    foreach (var member in members)
+                <div>
+                    <label>Добавить участников</label>
+                    <select class="selected_members" multiple="multiple" style="width: 950px">
+                        @if (members != null)
+                        {
+                            foreach (var member in members)
+                            {
+                                <option value="@member.MemberId">@member.MemberName</option>
+                            } 
+                        }
+                    </select>
+                </div>
+
+                <label>Количество раундов</label>
+                <div class="editor-field">
+                    @Html.TextBox("roundsNumber", null, new { @id = "roundsNumber" })
+                </div>
+                
+            </div>
+            <div role="tabpanel" class="tab-pane" id="rounds">
+                <div class="rounds" id="createrounds">
+                    @if (Model != null)
                     {
-                        <option value="@member.MemberId">@member.MemberName</option>
+                        Html.Action("CreateRounds", new {tournament = Model, count = "roundsNumber"});
                     }
-                }
-            </select>
+                </div>
+                <a class="btn btn-default btn-sm" data-dt-idx="1" id="create">Создать</a>
+            </div>
         </div>
-
-        <label>Количество раундов</label>
-        <div class="editor-field">
-            @Html.TextBox("roundsNumber")
-            <a class="btn btn-default btn-sm" href="@Url.Action("Create", "Round")">Добавить</a>
-        </div>
-
-        <div class="rounds" id="rounds">
-            
-        </div>
-
+       
         <p></p>
         <p>
-            <a class="btn btn-default btn-sm" data-dt-idx="1" id="create">Создать</a>
             <a class="btn btn-default btn-sm" href="@Url.Action("Index", "Tournament")">Вернуться к списку</a>
         </p>
 
@@ -77,8 +91,11 @@
     @Scripts.Render("//code.jquery.com/jquery-1.10.2.js")
     @Scripts.Render("~/Scripts/select2/js/select2.min.js")
     @Scripts.Render("//code.jquery.com/ui/1.11.4/jquery-ui.js")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    @Scripts.Render("//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
+    @Scripts.Render("//cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js")
 
-    <script>
+   <script>
         $(function() {
             $("#Date").datepicker({ dateFormat: 'dd.mm.yy' });
         });
@@ -124,20 +141,34 @@
             });
         });
 
-        $(document).ready(function () {
-            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-                $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
+        $('#rounds').click(function () {
+            $('.select2-selection__rendered').each(function () {
+                $(this).find('li').each(function () {
+
+                    postData.Members = $(".selected_members").select2().val().map(function (item) {
+                        return { MemberId: item };
+                    })
+                });
             });
 
-            $('table.table').DataTable({
-                ajax: '../ajax/data/arrays.txt',
-                scrollY: 200,
-                scrollCollapse: true,
-                paging: false
-            });
+            postData.TournamentName = $('#TournamentName')[0].value;
+            postData.Date = $('#Date')[0].value;
+            postData.Count = $('#roundsNumber').val();
 
-            // Apply a search to the second table for the demo
-            $('#myTable2').DataTable().search('New York').draw();
+            $.ajax({
+                url: "/Tournament/CreateRounds",
+                data: JSON.stringify(postData),
+                contentType: 'application/json',
+                dataType: "json",
+                type: 'POST',
+                success: function (data) {
+                    alert("success");
+                    //window.location.reload();
+                },
+                error: function (err, data) {
+                    //window.location.reload();
+                }
+            });
         });
     </script>
 }

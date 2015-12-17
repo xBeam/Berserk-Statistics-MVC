@@ -29,6 +29,7 @@ namespace Berserk_Statistics_MVC.Controllers
             _tournaments = context.Tournaments;
             _members = context.Members;
             _rounds = context.Rounds;
+            _tables = context.Tables;
         }
 
         // GET: /Tournament/
@@ -80,11 +81,20 @@ namespace Berserk_Statistics_MVC.Controllers
             return RedirectToAction("Index", "Tournament");
         }
 
-        public void CreateRounds(Tournament tournament, int count)
+        public ActionResult CreateRounds(Tournament tournament, int? count)
         {
+            foreach (var member in tournament.Members)
+            {
+                member.MemberName = _members.All.FirstOrDefault(c => c.MemberId == member.MemberId).MemberName;
+            }
+
+            tournament.Owner = _users.CurrentUser;
+            _tournaments.InsertOrUpdate(tournament);
+            _tournaments.Save();
+
             for (int i = 0; i < count; i++)
             {
-                var round = new Round{Tournament = tournament};
+                var round = new Round{ Tournament = tournament };
                 _rounds.InsertOrUpdate(round);
                 _rounds.Save();
 
@@ -98,7 +108,11 @@ namespace Berserk_Statistics_MVC.Controllers
                     _tables.Save();
                 }
             }
-            var rounds = _rounds.All.Where(c => c.Tournament.TournamentId == tournament.TournamentId);
+            var rounds = _rounds.All;
+            if (tournament != null && _rounds.All.Where(c => c.Tournament.TournamentId == tournament.TournamentId).Any())
+            {
+                rounds = _rounds.All.Where(c => c.Tournament.TournamentId == tournament.TournamentId);
+            }
             return PartialView(rounds);
         }
 
@@ -145,6 +159,20 @@ namespace Berserk_Statistics_MVC.Controllers
             if (!id.HasValue)
             {
                 throw new ArgumentNullException();
+            }
+
+            var connectedRounds = _rounds.All.Where(c=>c.Tournament.TournamentId == id);
+
+            foreach (var connectedRound in connectedRounds)
+            {
+                var connectedTables = _tables.All.Where(c => c.Round.RoundId == connectedRound.RoundId);
+
+                foreach (var connectedTable in connectedTables)
+                {
+                    _tables.Remove(_tables.All.FirstOrDefault(c => c.TableId == connectedTable.TableId));
+                }
+
+                _rounds.Remove(_rounds.All.FirstOrDefault(c=>c.RoundId == connectedRound.RoundId));
             }
 
             _tournaments.Remove(_tournaments.All.FirstOrDefault((c=>c.TournamentId == id)));

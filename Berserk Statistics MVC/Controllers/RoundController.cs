@@ -17,6 +17,7 @@ namespace Berserk_Statistics_MVC.Controllers
     {
         private ITournamentRepository _tournaments;
         private IRoundRepository _rounds;
+        private ITableRepository _tables;
         private IMemberRepository _members;
 
         public RoundController() : this(new DalContext())
@@ -28,6 +29,7 @@ namespace Berserk_Statistics_MVC.Controllers
             _tournaments = context.Tournaments;
             _members = context.Members;
             _rounds = context.Rounds;
+            _tables = context.Tables;
         }
 
         //
@@ -130,6 +132,13 @@ namespace Berserk_Statistics_MVC.Controllers
             if (!id.HasValue)
             {
                 throw new ArgumentNullException();
+            }
+
+            var connectedTables = _tables.All.Where(c => c.Round.RoundId == id);
+
+            foreach (var connectedTable in connectedTables)
+            {
+                _tables.Remove(_tables.All.FirstOrDefault(c => c.TableId == connectedTable.TableId));
             }
 
             _rounds.Remove(_rounds.All.FirstOrDefault((c => c.RoundId == id)));
